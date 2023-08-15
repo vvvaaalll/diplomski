@@ -104,6 +104,8 @@
 % Definicija Unicode znakova s prelomom linije
 \newunicodechar{́}{\nobreak\hspace{-1ex}\'{}} % U+0301
 \newunicodechar{̌}{\nobreak\hspace{-1ex}\v{}} % U+030C
+\DeclareUnicodeCharacter{2212}{-}
+
 
 \usepackage{multicol}
 
@@ -134,7 +136,7 @@
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}  %postavke za imenovanje slika po poglavljima%
 \renewcommand{\thetable}{\thesection.\arabic{table}}   %postavke za imenovanje tablica po poglavljima%
 \renewcommand{\theequation}{\thesection-\arabic{equation}} %postavke za brojanje jednadzbi po poglavljima%
-\renewcommand{\refname}{LITERATURA}						% Uppercase Literatura
+\renewcommand{\refname}{Literatura}						% Uppercase Literatura
 
 %**************************************************************************************************************
 
@@ -463,7 +465,7 @@ Kada su u pitanju komponente GitLab CI/CD cjevovoda, poslovi se mogu promatrati 
 
 \begin{figure}[ht!] % [ht!] - opcija koja definira polozaj slike h-here, t-top, !-ne slusaj latexov AI. 
 	\centering % - centrira sliku
-	\includegraphics[scale=0.5]{./Slike/gitlab ci job overview main branch.png} % [scale] - skalira dimenziju slike, moze i [width=0.6\linewidth] i slicno. 
+	\includegraphics[scale=0.5]{./Slike/gitlab ci job overview main branch.png} % [scale] - skalira dimenziju slike, moze i [width=1\linewidth] i slicno. 
 	\caption{prikaz Gitlab posla s pripadajućim fazama (placeholder slika) \label{f:prikaz Gitlab posla s pripadajućim fazama}} % LABEL UVIJEK UNUTAR CAPTIONA. 
 \end{figure}
 
@@ -476,7 +478,7 @@ Osim toga, GitLab ne nameće zahtjev da svaki posao obavlja samo jedan zadatak. 
 
 \subsection{Definiranje gitlab CI/CD konfiguracije}
 
-U poglavlju iznad definiran je proces konfiguriranja CI/CD cjevovoda, koji uključuje definiranje faza, poslova i naredbi, no kako zapravo izvesti ovu konfiguraciju i gdje? Sva konfiguracija za CI/CD cjevovod obavlja se unutar datoteke pod nazivom .gitlab-ci.yml, koja se nalazi u korijenskom direktoriju repozitorija projekta. Ako istražimo bilo koji javni GitLab projekt s implementiranim cjevovodom, možemo pronaći datoteku s ovim nazivom koja određuje radnje konfigurirane za taj projekt.
+U prethodnom poglavlju definiran je proces konfiguriranja CI/CD cjevovoda, koji uključuje definiranje faza, poslova i naredbi, no kako zapravo izvesti ovu konfiguraciju i gdje? Sva konfiguracija za CI/CD cjevovod obavlja se unutar datoteke pod nazivom .gitlab-ci.yml, koja se nalazi u korijenskom direktoriju repozitorija projekta. Ako istražimo bilo koji javni GitLab projekt s implementiranim cjevovodom, možemo pronaći datoteku s ovim nazivom koja određuje radnje konfigurirane za taj projekt.
 
 Svaka datoteka .gitlab-ci.yml koristi jezik YAML(yet another markup language ili YAML ain't markup language) dizajniran za tu svrhu. Ovaj se jezik sastoji od ključnih riječi, vrijednosti i nekih sintaktičkih elemenata. Određene ključne riječi koriste se za definiranje faza i poslova unutar tih faza. Ostale ključne riječi koriste se za prilagodbu poslova i njihovog ponašanja unutar cjevovoda. Dodatno, postoje ključne riječi za postavljanje varijabli, određivanje Docker slika za poslove i utjecaj na cjelokupni cjevovod na različite načine. Ovaj jezik je dovoljno fleksibilan da se prilagodi širokom rasponu zadataka u CI/CD cjevovodima, ali ipak nije pretjerano složen (barem nakon što se stekne neko iskustvo u pisanju i razumijevanju ovih CI/CD konfiguracijskih datoteka).
 
@@ -504,70 +506,199 @@ Mnoge izgradnje Dockera izvode se jednim pozivanjem naredbe za izgradnju slike d
 
 \newpage
 
-\subsection{Izgradnja, testiranje, i implementacija aplikacije koristeći gitlab pipeline}
-
-možda bolje objasniti na primjeru u poglavlju Definiranje gitlab ci/cd konfiguracije za aplikaciju?
-
-\newpage
-
 \section{Implementacija web aplikacije i kontinuirane integracije pomoću gitlab pipelinea u razvoju aplikacije}
 
- 
+Kreirana aplikacija s pripadajućom gitlab-ci.yaml datotekom koja sadrži konfiguraciju cjevovoda nalazi se na gitlabu na sljedećoj poveznici: https://gitlab.com/tarantulas/file-management. 
 
-\subsection{Odabir jezika i frameworka za backend aplikaciju}
-
+ Za izradu web aplikacije kojoj je konfigurirana kontinuirana integracija, korištenjem gitlab cjevovoda, korišten je Spring Boot okvir. Spring Boot pruža pomoć u upravljanju ovisnostima projekta kroz koncept "početnih ovisnosti". Ove početne ovisnosti funkcioniraju kao jedinstvene Maven (i Gradle) ovisnosti, iskorištavajući mehanizam tranzitivnog rješavanja ovisnosti za prikupljanje često korištenih biblioteka pod nekoliko odabranih ovisnosti specifičnih za značajke.\cite{springBootInAction} Za izradu aplikacije korišten je Apache Maven, koji je okvir za upravljanje projektima otvorenog koda, temeljen na standardima koji pojednostavljuju izgradnju, testiranje, izvješćivanje i pakiranje projekata. Maven naredbe pokreću se kroz komandnu liniju, što je bitno za mogućnost konfiguracije cjevovoda. Implementacija kreirane aplikacije nalazi se na gitlab repozitoriju na linku: https://gitlab.com/tarantulas/file-management. Pokretanjem projekta moguće je pristupiti generiranoj swagger dokumentaciji na http://localhost:8080/swagger-ui/index.html.
 
 \subsection{Pregled i opis jave i spring boot frameworka}
 
+Više od desetljeća, Spring Framework se pozicionirao kao dominantan okvir za razvoj Java aplikacija, postavši glavni izbor. Spring se u početku pojavio kao lakša alternativa Java Enterprise Editionu (JEE, također poznata kao J2EE), odstupajući od složenog pristupa razvoja teških Enterprise JavaBeansa (EJB). Umjesto toga, Spring je prihvatio jednostavniju rutu za poslovni razvoj Java aplikacija, koristeći ubrizgavanje ovisnosti i aspektno orijentirano programiranje za repliciranje EJB mogućnosti korištenjem običnih Java objekata (POJO).
+
+Međutim, unatoč pojednostavljenim komponentama koda, Spring se suočio sa zamršenostima u pogledu konfiguracije. U početku je XML služio kao konfiguracijski medij za Spring (i to u znatnim količinama). Pojavom Spring 2.5 uvedeno je skeniranje komponenti putem komentara, značajno smanjujući potrebu za eksplicitnom XML konfiguracijom u internim komponentama aplikacije. Naknadno izdanje Spring 3.0 uvelo je konfiguraciju, temeljenu na Javi, za organizacijsku alternativu XML-u i koju je lako moguće refaktorirati.
+Ipak, izbjeći konfiguracijske zahtjeve pokazalo se nedostižnim. Eksplicitna konfiguracija, bilo u XML-u ili Javi, ostala je neophodna za aktiviranje specifičnih Spring funkcionalnosti kao što su upravljanje transakcijama i Spring MVC. Uključivanje značajki iz vanjskih biblioteka, kao što su web prikazi temeljeni na Thymeleafu, također je zahtijevalo eksplicitno postavljanje. Konfiguracija servleta i filtara (kao što je Springov DispatcherServlet) zahtijevala je eksplicitne konfiguracijske korake unutar web.xml ili inicijalizatora servleta. Dok je skeniranje komponenti smanjilo opseg konfiguracije, a konfiguracija Jave učinila je manje glomaznom, Spring je nastavio nametati značajne troškove konfiguracije. Vrijeme uloženo u izradu konfiguracije umanjuje raspodjelu napora prema stvarnoj logici aplikacije. Nadalje, nadziranje upravljanja ovisnosti o projektu ostaje često podcijenjen pothvat. Određivanje odgovarajućih biblioteka za uključivanje u izgradnju projekta već je složen zadatak. Međutim, točno mjerenje koje su verzije tih biblioteka kompatibilne jedna s drugom predstavlja još zastrašujući izazov. Upravljanje ovisnošću, koliko god bilo vitalno, predstavlja dodatni sloj opstrukcije. Kada uvedete ovisnosti u svoju izgradnju projekta, to znači da se vrijeme odvaja od razvoja koda aplikacije. Neuspjesi koji proizlaze iz potencijalnih nedosljednosti koje proizlaze iz netočnog odabira verzija ovisnosti mogu značajno ugroziti produktivnost. U ovom krajoliku, Spring Boot je donio transformativnu promjenu.\cite{springBootInAction}
 
 \subsection{Arhitektura web aplikacije}
+
+Aplikacija je kreirana koristeći Spring MVC obrazac. Spring Web model-view-controller (MVC) okvir dizajniran je oko DispatcherServleta koji šalje zahtjeve rukovateljima, s konfigurabilnim mapiranjem rukovatelja, postavkama pogleda, lokalizacijom i postavkama teme kao i podrškom za učitavanje datoteka. Zadani rukovatelj temelji se na anotacijama @Controller i @RequestMapping, nudeći širok raspon fleksibilnih metoda rukovanja komunikacijom s klijentom. S uvođenjem Spring 3.0, mehanizam @Controller također vam omogućuje stvaranje RESTful web stranica i aplikacija, putem @PathVariable anotacije i drugih značajki.\cite{springMVCUrl} 
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/AppArchitecture.png}
+    \caption{Dijagram arhitekture web aplikacije}
+    \label{fig:dijagram-arch-apk}
+\end{figure}
+
+Na slici \ref{fig:dijagram-arch-apk} prikazana je međuovisnost glavnih dijelova spring boot arhitekture na primjeru kreirane aplikacije. Spring boot arhitektura razvoja aplikacije razdvaja aplikaciju u četiri sloja. Sloj baze podataka. Drugi je sloj repozitorija u kojem koristeći JPA (Java Persistence API) jer omogućuje lakšu komunikaciju s bazom podataka dajući gotove metode za manipulaciju podatcima u bazi, no također omogućuje lako pisanje metoda uz definiciju Query naredbe koristeći anotaciju @Query. Poslovni sloj bavi se logikom rada aplikacije, ovdje se nalazi izvršavanje kalkulacija, dohvaćanje podataka iz baze kroz repozitorij i autorizacija. Posljednji, sloj Spring Boot arhitekture je prezentacijski sloj. Posljednji sloj Spring Boot arhitekture je prezentacijski sloj. U ovom sloju se definira kontroller aplikacije i pristupne točke za komunikaciju Spring Boot aplikacijom. 
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Slike/springMvcLogic.png}
+    \caption{Prikaz slojeva Spring Boot arhitekture \cite{springArchitectureLayers}}
+    \label{fig:dijagram-arch-apk}
+\end{figure}
+
+
 
 
 \subsection{Implementacija funkcionalnosti backend aplikacije}
 
+Aplikacija ima definirane CRUD (skraćenica engleskog kreiraj, dohvati, izmijeni, obriši) servise za upravljanjem podatcima korisnika, tarantula i slika. U nastavku je dan kod implementacije UserController klase koja predstavlja prezentacijski sloj aplikacije za rad s podatcima korisnika. Kod UserController.java klase, u kojem se nalazi definicija REST pristupnih točaka dan je u prilogu 1.
+
+
+
+
+Na danom primjeru kontrolera bitno je obratiti pažnju na anotacije metoda i same klase. Kontroler klasa označava se @RestController anotacijom. Na primjeru je moguće uočiti @Operation anotaciju za generiranje swagger dokumentacije, @SecurityRequirements i mapping anotacije kojima se definira RESTfull mrežni servis. U kontroler korisničkim podatcima korištenjem loombok anotacije @RequiredArgsConstructor radi se ubrizgavanje ovisnosti UserService (poslovnog sloja) kroz konstruktor.
 
 \subsection{Postavljanje gitlab repozitorija za aplikaciju}
 
+Pri kreiranju projekta na gitlab korisničkom sučelju moguće je odabrati opciju za kreiranje novog repozitorija. Klikom za gumb za izradu novog repozitorija otvara se obrazac, prikazan na slici \ref{fig:git-create-blank}, koji je potrebno popuniti željenim podatcima.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/git-create-blank-project.png}
+    \caption{Prikaz obrasca za kreiranje gitlab projekta \cite{springArchitectureLayers}}
+    \label{fig:git-create-blank}
+\end{figure}
+
+Nakon kreiranog repozitorija, moguće ga je klonirati na lokalno računalo, ili koristiti gitlab IDE za razvoj aplikacije. Gitlab posjeduje zadani gitlab-runner, no za potrebe projekta kreiran je vlastiti gitlab-runner na Google cloud vitualnoj mašini koji će se koristiti za izvođenje kontinuirane implementacije. Upute kreiranja gitlab-runnera moguće je pronaći u službenoj gitlab dokumentaciji na linku: https://docs.gitlab.com/runner.  
+
+Vrlo korisna mogućnost gitlaba je kreiranje varijabli. Varijable se mogu koristiti za pohranu osjetljivih informacija, kao što su lozinke i tajni ključevi, i moguće ih je koristiti u gitlab-ci konfiguraciji. Varijable se mogu klasificirati u tri vrste: zaštićene, maskirane i proširene.
+\begin{itemize}
+    \item Zaštićene varijable izložene su samo zaštićenim granama ili zaštićenim oznakama. To znači da neće biti vidljive korisnicima koji nisu ovlašteni za pregled zaštićenih grana ili oznaka.
+    \item Maskirane varijable skrivene su u zapisnicima poslova. To znači da će biti zamijenjeni zvjezdicama u zapisnicima poslova, što ih čini nečitljivima. Maskirane varijable također moraju odgovarati zahtjevima maskiranja, što su pravila koja određuju koliko su osjetljive informacije maskirane.
+    \item Proširene varijable su varijable sa znakom dolara (\$) na početku. Te se varijable tretiraju kao početak reference na drugu varijablu. Na primjer, varijabla \$DB\_PASSWORD bi se proširila na vrijednost varijable DB\_PASSWORD.
+\end{itemize}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/gitlab-variables.png}
+    \caption{Prikaz konfiguriranih gitlab CI/CD varijabli korištenih u projektu}
+    \label{fig:git-variables}
+\end{figure}
 
 \subsection{Definiranje gitlab ci/cd konfiguracije za aplikaciju}
+
+Gitlab ci/cd konfiguracija definira se u gitlab-ci.yaml datoteci smještenoj u korjenskoj mapi projekta. U prilogu 2 prikazan je gitlab-ci.yaml kod konfiguracije.
+
+
+Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slučaju dodana je skripta otvorenog koda, korištena za verzioniranje aplikacije, koju je moguće pronaći na linku: https://gitlab.com/base58-public/ci/templates/-/blob/main/Jobs/Auto-Versioning.yml. Nakon dodavanja ovisnosti, definiran je docker kontenjer koji sadrži instaliran docker servis kako bismo unutar njega mogli pokrenuti druge docker kontenjere tijekom izvršavanja cjevovoda. Na primjeru konfiguracije korišten je docker:19.03.12−dind kontenjer unutar kojeg se za korištenje maven naredbi pokreće maven:3.8.3−openjdk−17 kontenjer čija je verzija definirana varijablom. Prije opisa pojedinog koraka izvođenja cjevovoda potrebno je navesti korake pod stages definicijom unutar yaml datoteke. U primjeru definirano je pet koraka izvođenja cjevovoda aplikacije. Definirani su koraci za izgradnju aplikacije, pokretanje testova, verzioniranje apliakcije, pakiranje i implementaciju. 
 
 
 \subsection{Testiranje, izgradnja i objavljivanje aplikacije putem gitlab pipelinea}
 
+\begin{itemize}
+
+\item Korak za izgradnju aplikacije pokreće maven docker kontenjer unutar kojeg se izvrši naredba mvn package −B −Dmaven.test.skip=true kojom maven aplikaciju izgradi, zapakira i spremi u mapu target. U koraku izgradnje i pakiranja aplikacije isključen je korak testiranja.
+
+\item Korak pokretanja testova pokreće maven docker kontenjer unutar kojeg se izvrši naredba mvn test koja pokreće kreirane integracijske testove.
+
+\item Korak verzioniranja definiran je u umetnutoj skripti. Skripta vodi brigu o verzijama aplikacije koristeći gitlab api kroz korištenje tagova na zahtjevima spajanja koda za određivanje kako uvećati verziju. Definirani tagovi korišteni za izmjene verzije koda prikazani su na slici \ref{fig:label selection}. Kod skripte za verzioniranje aplikacije dan je u prilogu 5.
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\linewidth]{Slike/label-selection.png}
+    \caption{Prikaz izbora tagova korištenih za verzioniranje aplikacije}
+    \label{fig:label selection}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/versioning-tree.png}
+    \caption{Prikaz dijagrama verzioniranja aplikacije s pripadajućim oznakama}
+    \label{fig:versioning-tree}
+\end{figure}
+
+\begin{itemize}
+
+\item{Korak pakiranja aplikacije, korištenjem gitlab varijabli, dohvaća podatke za pristup docker hub repozitoriju. Gitlab nudi i zadani docker repozitorij koji je mogće koristiti. Prilikom izrade docker kontenjera koji sadrži aplikaciju dodaje mu se tag latest i tag verzije. Prikaz docker hub repozitorija na kojem su vidljive verzije koda nalazi se na slici \ref{fig:docker-versions}}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{Slike/docker-versions.png}
+    \caption{Prikaz popisa posljednje verzioniranih docker kontenjera}
+    \label{fig:docker-versions}
+\end{figure}
+
+\item Korak implementacije aplikacije izvršava se na gitlab-runner docker kontenjeru, unutar virtuale mašne u oblaku. U ovom koraku pokreće se docker compose konfiguracija kreirana u docker-compose.yaml, datoteci prikazanoj u prilogu 4. Docker compose datotekom konfigurira se docker kontenjer baze podataka, kreiranog servisa i ostatka interne mreže docker kontenjera korištenih za rad aplikacije. Docker compose omogućuje pokretanje skupa docker kontenjera, s unaprijed konfiguriranim vanjskim varijablama, jednom naredbom.
+
+
+
+
+\end{itemize}
+
 
 \subsection{Automatsko pokretanje testova i osiguranje kvalitete koda}
 
+Prilikom razvoja aplikacije, za svaku kontroler klasu kreiran je set integracijskih testova koje je moguće pokrenuti prilikom pokretanja mvn test naredbe unutar cjevovoda. Ukoliko postoje testovi koji nisu prošli validaciju, prekida se cjevodod i novi kod nije moguće spojiti u develop i main grane. Kreirani integracijski testovi prezentacijskog sloja, upravlanja korisničkim podatcima, dani su u prilogu 1. Po završetku izvođenja koraka testiranja, moguće je otići na prikaz izvršenih pipeline poslova gdje su vidljivi logovi aplikacije, kao i informacija o uspješnosti izvođenja testovova. Na slici \ref{fig:test-log} vidljiv je isječak zaslona logiranog uspjega izgradnje aplikacije i uspješnosti pokrenutih testova. Izvršavanje svih koraka cjevovoda na granama novih značajki i development grani u prosjeku traje tri minute, dok izvršavanje svih koraka cjevovoda na main grani traje u prosjeku četiri minute. Vrijeme trajanja izvršavanja svih koraka cjevovoda objektivno djeluje kratko no, uzevši u obzir da stotine ljudi istovremeno može raditi na istom projektu, velik dio vremena proveden je čekajući izvršavanje svih koraka cjevovoda kako bi kod bilo moguće spojiti u drugu granu. Uzimajući u obzir da je implementacijom kontinuirane integracije osigurano da svaka nova verzija koda provjereno radi, da nije potrebno ulagati resurse u ručno testiranje svih mogućnosti aplikacije, vrijeme provedeno čekajući izvršavanje cjevovoda zanemarivo je u odnosu na vrijeme koje bi bilo potrebno za ručno testiranje i implementaciju svake nove verzije aplikacije. 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{Slike/test-log.png}
+    \caption{Informacije o uspješnosti izvedenih testova iz loga kreiranog tijekom izvođenja cjevovoda}
+    \label{fig:test-log}
+\end{figure}
 
+\newpage
+\section*{Zaključak}
 
+U današnjem okruženju brzog razvoja softvera, bitno je usvojiti prakse koje osiguravaju učinkovitost, kvalitetu i pravovremenu isporuku softverskih rješenja. Kontinuirana integracija (CI) pojavila se kao temeljni koncept u ovom kontekstu. Automatizacijom procesa integriranja promjena koda, izvođenja testova i izgradnje artefakata, CI omogućuje razvojnim timovima otkrivanje i rješavanje problema rano u životnom ciklusu razvoja. To pak dovodi do poboljšane suradnje, smanjenih rizika i brže isporuke softvera.
 
+Cilj ovog rada bio je istražiti i opisati koncept kontinuirane integracije korištenjem GitLab cjevovoda, te istražiti alternativne platforme koje se koriste za kontinuiranu integraciju. Ispitujući temeljna načela i najbolje prakse kontinuirane integracije, nastojano je pružiti opće razumijevanje njegovih prednosti i izazova. GitLab CI je popularan CI/CD alat koji se može koristiti za automatizaciju cijelog cjevovoda isporuke softvera, od upravljanja izvornim kodom do implementacije u produkcijsku okolinu.
 
-
+Rezultati implementacije pokazali su da CI/CD može značajno poboljšati učinkovitost, kvalitetu i pouzdanost životnog ciklusa razvoja softvera. Proces razvoja jedonstavnije je podijeliti na više ljudi jer razvojni programeri mogu istovremeno raditi na različitim dijelovima koda i biti sigurni da njihove promjene neće pokvariti kreirane funkcionalnosti aplikacije. Kvaliteta koda je također poboljšana, budući da su automatizirani testovi pokretani svaki put kada je napravljena promjena. To je pomoglo u otkrivanju grešaka u ranoj fazi razvoja i spriječilo njihovo uvođenje u produkcijsku okolinu. Konačno, aplikacija je implementirana u produkcijsku okolinu brže i pouzdanije, zahvaljujući automatizaciji procesa implementacije.
+Rezultati ovog rada pokazuju da je CI/CD vrijedna praksa koja može pomoći u poboljšanju kvalitete, pouzdanosti i učinkovitosti razvoja softvera. GitLab pipelines je moćna CI/CD platforma koja se može koristiti za automatizaciju cijelog cjevovoda isporuke softvera, olakšavajući razvojnim timovima usvajanje CI/CD praksi.
 
 \newpage
 \section*{Sa\v{z}etak}
 \addcontentsline{toc}{section}{Sa\v{z}etak}
 
-Ovdje se pi\v{s}e sa\v{z}etak diplomskog rada
+Ovaj rad istražuje koncept kontinuirane integracije (CI) i njegovu implementaciju pomoću GitLab cjevovoda. Pruža pregled CI-a, njegovih prednosti i izazova te njegovih temeljnih načela i najboljih praksi. Također istražuje različite CI/CD platforme, kao što su Jenkins, Travis CI i GitLab CI, te uspoređuje njihove značajke, funkcionalnost i mogućnosti integracije. Rad zatim predstavlja studiju slučaja web aplikacije razvijene u Javi korištenjem Spring Boot okvira. Aplikacija je backend aplikacija za upravljanje tarantulama u hobiju teraristike. Korisnicima omogućuje upravljanje svojim tarantulama kroz mogućnost praćenja životnog ciklusa i vođenje evidencije o hranjenju i ponašanju. Aplikacija je razvijena korištenjem CI/CD praksi, uključujući GitLab cjevovode. To je uključivalo postavljanje GitLab repozitorija za aplikaciju, definiranje CI/CD konfiguracije i postavljanje faza cjevovoda za kontrolu verzija, izgradnju, testiranje i implementaciju aplikacije u proizvodnju. U radu se također raspravlja o rezultatima implementacije, analizirajući učinkovitost CI/CD u poboljšanju procesa razvoja. Performanse i učinkovitost implementiranog sustava su ocijenjene, ispitujući faktore kao što su vrijeme izgradnje, pokrivenost testom i stope uspješnosti implementacije.
+U radu se zaključuje da je CI/CD vrijedna praksa koja može pomoći u poboljšanju učinkovitosti, kvalitete i pouzdanosti životnog ciklusa razvoja softvera. GitLab pipelines je moćna CI/CD platforma koja se može koristiti za automatizaciju cjelokupnog procesa isporuke softvera, od upravljanja izvornim kodom do postavljanja do proizvodnje. Studija slučaja predstavljena u ovom radu pokazuje kako se CI/CD može koristiti za uspješan razvoj i implementaciju složene web aplikacije.
 
 \bigskip
-\noindent\textbf{Klju\v{c}ne rije\v{c}i:}: A ovdje klju\v{c}ne rije\v{c}i
+\noindent\textbf{Klju\v{c}ne rije\v{c}i:}: Kontinuirana integracija, CI/CD, GitLab cjevovod, razvoj softvera, automatizacija, testiranje, implementacija, Java, Spring Boot, web aplikacija, kontrola verzija, Docker Hub, kvaliteta koda, tijek razvoja softvera, isporuka softvera.
 
 
 \newpage
 \section*{Abstract}
 \addcontentsline{toc}{section}{Abstract}
 
-You can write the abstract of the thesis here
+This paper investigates the concept of continuous integration (CI) and its implementation using GitLab pipelines.  It gives a general overview of CI, highlighting its advantages, difficulties, core values, and recommended practices. Additionally, it investigates and contrasts the features, functionality, and integration skills of several CI/CD platforms, including Jenkins, Travis CI, and GitLab CI. The paper then presents a case study of a web application developed in Java using the Spring Boot framework. The application is a backend application for managing tarantulas in the hobby of terrarium keeping.  It enables users to maintain control over their terrariums, monitor the tarantulas' life cycles, and log information on their feeding and activity. GitLab pipelines were used in the application's CI/CD development. In order to do this, a GitLab repository for the application has been set up, along with a CI/CD setup and pipeline steps for version control, building, testing, and deployment to production. The paper also discusses the results of the implementation, analyzing the effectiveness of CI/CD in improving the development process. The paper comes to the conclusion that the software development lifecycle can be made more effective, high-quality, and reliable by implementing CI/CD. The robust CI/CD platform GitLab pipelines may be used to automate every step of the software delivery process, from source code management to deployment to production. 
 
 \bigskip
-\noindent\textbf{Keywords:} And here you can write the keywords. 
+\noindent\textbf{Keywords:}  Continuous Integration, CI/CD, GitLab pipeline, software development, automation, testing, deployment, Java, Spring Boot, web application, version control, Docker Hub, code quality, development workflow, software delivery.
 
 \newpage
-\section*{Literatura}
-123
-\printbibliography[heading=bibintoc]
 
+\printbibliography[heading=bibintoc]
+\nocite{duvall-2007-continuous}
+\nocite{brent-2020-CI/CD}
+\nocite{van2023continuous}
+\nocite{humble2010continuous}
+\nocite{kim2016devops}
+\nocite{cowell2023automating}
+\nocite{vinto2022gitops}
+\nocite{dejonghe2020nginx}
+\nocite{kane2023docker}
+\nocite{leszko2019continuous}
+\nocite{rawat2023ci}
+\nocite{challenges}
+\nocite{pr_Blirnan1999}
+\nocite{atlassian_ci_tools}
+\nocite{katalon_ci_tools}
+\nocite{ci_tools_slika}
+\nocite{top_7_ci_tools}
+\nocite{gitlab_vs_jenkins_BrowserStack}
+\notice{spring-mvc-url}
+\notice{springArchitectureLayers}
+\notice{base58}
 \newpage
 \section*{Životopis}
 \addcontentsline{toc}{section}{\v{Z}ivotopis}
@@ -579,11 +710,588 @@ tehnologija gdje 2021. godine upisuje diplomski studij, smjer Računarstvo.
 
 
 
+
+
 \newpage
 \section*{Prilog 1}
+\label{prilog 1}
 \addcontentsline{toc}{section}{Prilog 1}
+UserController.java klasa s definicijom RESTfull pristupnih točaka za manipulaciju korisničkim podatcima.
+
+\begin{lstlisting}[language=Java]
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/users")
+public class UserController {
+
+    private final UserService userService;
 
 
-A ovdje dalje sla\v{z}ete sve \v{z}eljene priloge.
+    @Operation(description = "register new user", summary = "Register new user with provided attributes.")
+    @PostMapping("/signup")
+    public ResponseEntity<?> signUpUser(@RequestBody final CreateUserDto createUserDto) {
+        this.userService.signUp(Mapper.CreateUserToEntity(createUserDto));
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @Operation(description = "delete user", summary = "Delete user by id.")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable final Long id) {
+        this.userService.deleteUser(id);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @Operation(description = "Returns list of all users",
+            summary = "Returns list of all registered users. Requires Admin rights")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping
+    public ResponseEntity<Collection<UserDto>> getAllUsers() {
+        return new ResponseEntity<>(this.userService.getAll(), HttpStatus.OK);
+    }
+
+    @Operation(description = "Returns user found by id", summary = "Returns user found by id.")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable final Long id) {
+        return new ResponseEntity<>(this.userService.getById(id), HttpStatus.OK);
+    }
+
+    @Operation(description = "Edit user profile",
+            summary = "Update user attributes.")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @PutMapping
+    public ResponseEntity<UserDto> updateUser(@RequestBody final User user) {
+        return new ResponseEntity<>(this.userService.update(user), HttpStatus.OK);
+    }
+
+    @Operation(description = "Activate - deactivate user",
+            summary = "Activate - deactivate user by id.")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @PutMapping("/deactivate/{id}")
+    public ResponseEntity<UserDto> toggleActivateDeactivateUserById(@PathVariable final Long id) {
+        return new ResponseEntity<>(this.userService.toggleActivateDeactivate(id), HttpStatus.OK);
+    }
+
+
+    @Operation(description = "Give admin permissions",
+            summary = "Give admin permissions to user with provided id. Requires Admin rights.")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @PostMapping("/create-admin")
+    public ResponseEntity<?> giveAdminRights(@PathVariable final Long id) {
+        return new ResponseEntity<>(userService.createAdmin(id), HttpStatus.OK);
+    }
+
+    @Operation(description = "Revoke admin permissions",
+            summary = "Revoke admin permissions to user with provided id. Requires Admin rights.")
+    @SecurityRequirement(name = "Bearer Authentication")
+    @PostMapping("/revoke-admin")
+    public ResponseEntity<?> revokeAdminRights(@PathVariable final Long id) {
+        return new ResponseEntity<>(userService.revokeAdmin(id), HttpStatus.OK);
+    }
+}
+
+\end{lstlisting}
+
+
+\newpage
+\section*{Prilog 2 - gitlab-ci.yaml}
+\label{prilog 2}
+\addcontentsline{toc}{section}{Prilog 2}
+gitlab-ci.yml datoteka s konfiguracijom koraka kontinuirane integracije.
+
+
+\begin{lstlisting}
+
+include:
+  - local: 'templates/versioning.yml'
+
+image: docker:latest
+services:
+  - docker:19.03.12-dind
+
+variables:
+  MAVEN_IMAGE: maven:3.8.3-openjdk-17
+
+stages:
+  - build
+  - test
+  - version
+  - package
+  - deploy
+
+cache:
+  paths:
+    - .m2/repository
+    - target
+
+test:
+  stage: test
+  tags:
+    - docker
+  image: $MAVEN_IMAGE
+  script:
+    - echo "Maven test started"
+    - "mvn test"
+
+build-maven:
+  image: $MAVEN_IMAGE
+  stage: build
+  script: "mvn package -B -Dmaven.test.skip=true"
+  artifacts:
+    paths:
+      - target/*.jar
+
+build-and-push-docker:
+  stage: package
+  before_script:
+    - docker login --username $DOCKER_USERNAME --password $DOCKER_ACCESS_TOKEN docker.io
+  script:
+    - apk add git
+    - VERSION=$(git tag --points-at $CI_COMMIT_SHORT_SHA)
+    - docker build --pull -t docker.io/vvvaaalll/file-management:$VERSION .
+    - docker tag docker.io/vvvaaalll/file-management:$VERSION docker.io/vvvaaalll/file-management:latest
+    - docker push --all-tags docker.io/vvvaaalll/file-management
+  only:
+    - develop
+    - main
+
+deploy:
+  stage: deploy
+  tags:
+    - tarantulas
+  script:
+    - whoami
+    - pwd
+    - ls -la
+    - sudo docker-compose down
+    - sudo docker-compose pull
+    - sudo docker-compose up -d
+
+  only:
+    - main
+
+\end{lstlisting}
+
+
+\newpage
+\section*{Prilog 3 - TarantulaControllerTests.java}
+\label{prilog 1}
+\addcontentsline{toc}{section}{Prilog 3}
+TarantulaControllerTests.java klasa s definicijom integracijskih testova reprezentacijskog sloja
+
+\begin{lstlisting}[language=Java]
+package vloboda.tarantulaservice;
+
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import vloboda.filemanagement.dto.CreateTarantulaDto;
+import vloboda.filemanagement.dto.TarantulaUpdateDto;
+import vloboda.filemanagement.model.Tarantula;
+import vloboda.filemanagement.repository.TarantulaRepository;
+import vloboda.filemanagement.service.TarantulaService;
+
+
+import java.util.Optional;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
+public class TarantulaControllerTests extends BaseIT {
+    @Autowired
+    TarantulaService tarantulaService;
+    @Autowired
+    TarantulaRepository tarantulaRepository;
+
+    @Test
+    @Order(1)
+    void shouldReturnEmptyListIfThereAreNoTarantulas() throws Exception {
+
+        mockMvc.perform(get("/tarantulas")
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.page.totalElements").value(0));
+
+    }
+
+    @Test
+    @Order(2)
+    void shouldAddTarantulaSuccessfully() throws Exception {
+        CreateTarantulaDto createTarantulaDto = new CreateTarantulaDto();
+        createTarantulaDto.setName("Tarantula");
+        createTarantulaDto.setHairs(true);
+        createTarantulaDto.setOrigin("South America");
+        createTarantulaDto.setSpecies("Grammostola pulchripes");
+        createTarantulaDto.setVenom("Venomous");
+        createTarantulaDto.setTemper("Aggressive");
+
+        String body = objectMapper.writeValueAsString(createTarantulaDto);
+        mockMvc.perform(post("/tarantulas")
+                        .header("Authorization", "Bearer " + getUserAuthToken())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body))
+                .andExpect(status().isCreated());
+    }
+
+    @Test
+    @Order(3)
+    void shouldFailToAddTarantulaIfNameIsEmpty() throws Exception {
+        CreateTarantulaDto createTarantulaDto = new CreateTarantulaDto();
+        createTarantulaDto.setName("");
+        createTarantulaDto.setHairs(true);
+        createTarantulaDto.setOrigin("South America");
+        createTarantulaDto.setSpecies("Grammostola pulchripes");
+        createTarantulaDto.setVenom("Venomous");
+        createTarantulaDto.setTemper("Aggressive");
+
+        mockMvc.perform(post("/tarantulas")
+                        .header("Authorization", "Bearer " + getUserAuthToken())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(String.valueOf(createTarantulaDto)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @Order(4)
+    void shouldFailToAddTarantulaIfUserIsNotAuthenticated() throws Exception {
+        CreateTarantulaDto createTarantulaDto = new CreateTarantulaDto();
+        createTarantulaDto.setName("Tarantula");
+        createTarantulaDto.setHairs(true);
+        createTarantulaDto.setOrigin("South America");
+        createTarantulaDto.setSpecies("Grammostola pulchripes");
+        createTarantulaDto.setVenom("Venomous");
+        createTarantulaDto.setTemper("Aggressive");
+
+        mockMvc.perform(post("/tarantulas")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(String.valueOf(createTarantulaDto)))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @Order(5)
+    void shouldReturnListOfTarantulas() throws Exception {
+
+        mockMvc.perform(get("/tarantulas")
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.page.totalElements").value(1));
+
+    }
+
+    @Test
+    @Order(6)
+    void shouldFailIfUserIsNotAuthenticated() throws Exception {
+        mockMvc.perform(get("/tarantulas"))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @Order(7)
+    void shouldReturnNotFoundIfTarantulaNotFound() throws Exception {
+        long tarantulaId = 1L;
+
+        mockMvc.perform(get("/tarantulas/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Order(8)
+    void shouldReturnTarantulaByIdIfFound() throws Exception {
+        long tarantulaId = 5L;
+
+        mockMvc.perform(get("/tarantulas/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("Tarantula"));
+    }
+
+    @Test
+    @Order(9)
+    void shouldReturnUnauthorizedIfUserIsNotAuthenticated() throws Exception {
+        long tarantulaId = 1L;
+
+        mockMvc.perform(get("/tarantulas/{id}", tarantulaId))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @Order(10)
+    void shouldReturnNotFoundIfTarantulaNotFoundForPatchTarantula() throws Exception {
+        long tarantulaId = 1L;
+        TarantulaUpdateDto tarantulaUpdateDto = new TarantulaUpdateDto();
+        tarantulaUpdateDto.setOptionalOfName(Optional.of("New name"));
+
+        mockMvc.perform(patch("/tarantulas/patch/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(tarantulaUpdateDto)))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Order(11)
+    void shouldUpdateTarantulaIfFound() throws Exception {
+        long tarantulaId = 5L;
+
+        TarantulaUpdateDto tarantulaUpdateDto = new TarantulaUpdateDto();
+        tarantulaUpdateDto.setOptionalOfName(Optional.of("New name"));
+
+        String body = objectMapper.writeValueAsString(tarantulaUpdateDto);
+        mockMvc.perform(patch("/api/tarantula/patch/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("New name"));
+
+    }
+
+    @Test
+    @Order(12)
+    void shouldReturnUnauthorizedIfUserIsNotAuthenticatedForPatchTarantula() throws Exception {
+        long tarantulaId = 5L;
+        TarantulaUpdateDto tarantulaUpdateDto = new TarantulaUpdateDto();
+        tarantulaUpdateDto.setOptionalOfName(Optional.of("New name"));
+
+        mockMvc.perform(patch("/tarantulas/patch/{id}", tarantulaId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(tarantulaUpdateDto)))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    @Order(13)
+    void shouldThrowExceptionIfUserNotAuthorized() throws Exception {
+        long tarantulaId = 5L;
+
+        mockMvc.perform(delete("/api/tarantula/{id}", tarantulaId))
+                .andExpect(status().isUnauthorized());
+
+    }
+
+    @Test
+    @Order(14)
+    void shouldDeleteTarantulaById() throws Exception {
+        long tarantulaId = 5L;
+
+        mockMvc.perform(delete("/api/tarantula/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(status().isNoContent())
+                .andExpect(jsonPath("$.message").value("Tarantula deleted successfully."));
+
+
+        // Verify that the tarantula is no longer in the database
+        Optional<Tarantula> tarantulaOptional = tarantulaRepository.findById(tarantulaId);
+        assertThat(tarantulaOptional).isEmpty();
+    }
+
+    @Test
+    @Order(15)
+    void shouldThrowExceptionIfIdIsInvalidForDeleteEndpoint() throws Exception {
+        long tarantulaId = 28L;
+
+        mockMvc.perform(delete("/api/tarantula/{id}", tarantulaId)
+                        .header("Authorization", "Bearer " + getUserAuthToken()))
+                .andExpect(jsonPath("$.message").value("Failed to delete tarantula."));
+
+
+    }
+}
+\end{lstlisting}
+
+\newpage
+\section*{Prilog 4 - docker-compose.yaml}
+\label{prilog 4}
+\addcontentsline{toc}{section}{Prilog 4}
+docker-compose.yaml konfiguracija s definicijom mreže docker kontenjera potrebnih za izvođenje aplikacije i definicija kojom se pokreće docker kontenjer kreirane aplikacije.
+\begin{lstlisting}
+version: '3.7'
+
+volumes:
+  postgres-data:
+
+networks:
+  file-management:
+    name: file-management
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: file-management
+
+services:
+  file-management:
+    image: vvvaaalll/file-management:latest
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+    networks:
+      - file-management
+    ports:
+      - "80:8080"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14.1-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres:/docker-entrypoint-initdb.d
+    user: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 30s
+      timeout: 5s
+    networks:
+      - file-management
+    hostname: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "15432:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@tarantulas.hr
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+    networks:
+      - file-management
+    depends_on:
+      - postgres
+
+\end{lstlisting}
+
+\newpage
+\section*{Prilog 5 - versioning.yaml}
+\label{prilog 5}
+\addcontentsline{toc}{section}{Prilog 5}
+versioning.yaml skripta je otvorenog koda, koristi se za verzioniranje maven aplikacije koristeći tagove dodijeljene na zahtjevima spajanja koda.
+
+\begin{lstlisting}
+
+#    MIT License
+
+#    Copyright (c) 2023 Base58 Ltd
+
+#    Permission is hereby granted, free of charge, to any person obtaining a copy
+#    of this software and associated documentation files (the "Software"), to deal
+#    in the Software without restriction, including without limitation the rights
+#    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#    copies of the Software, and to permit persons to whom the Software is
+#    furnished to do so, subject to the following conditions:
+
+#    The above copyright notice and this permission notice shall be included in all
+#    copies or substantial portions of the Software.
+
+#    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#    SOFTWARE.
+
+.script-1: &increment_version |
+  # ACCESS_TOKEN needs to be configured and defined in secrets
+  # Label needs to be added to MR: increment::major. increment::minor or increment::hotfix
+  # jq .iid error occurs if a) there is no merge request for the commit, b) curl is melformed, i.e. branch is not protected - has no access to variables
+  echo "PRIVATE-TOKEN: glpat-7uryqS1dBhBKmGMcBRyX $CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests?state=merged"
+  MR_ID=$(curl $CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests?state=merged|jq '.[] |.iid'|head -n 1)
+  #MR_ID=$(curl -s --header "PRIVATE-TOKEN: glpat-7uryqS1dBhBKmGMcBRyX" $CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests?state=merged|jq '.[] |.iid'|head -n 1)
+  echo "$MR_ID"
+  LABEL=$(curl -s --header "PRIVATE-TOKEN: glpat-7uryqS1dBhBKmGMcBRyX" "$CI_API_V4_URL/projects/$CI_PROJECT_ID/merge_requests/$MR_ID"|jq '.labels | to_entries[]|.value'|grep increment|cut -d '"' -f 2|cut -d ":" -f 3)||LABEL=""
+  echo "Merge id is set to \"$MR_ID\", label is set to \"$LABEL\" and branch is set to \"$CI_COMMIT_BRANCH\"."
+  if [[ "$LABEL" == "none" ]]; then
+    exit 3
+  fi
+  echo "CI_PROJECT_PATH_SLUG $CI_PROJECT_PATH_SLUG, CI_PROJECT_PATH $CI_PROJECT_PATH"
+  git clone https://oauth2:glpat-7uryqS1dBhBKmGMcBRyX@$(echo $CI_PROJECT_URL | grep -oP "^https://\K.*").git
+  cd $(echo $CI_PROJECT_PATH|awk -F/ '{print $NF}')
+  git config user.email ci@ci.com
+  git config user.name ci-user
+  git checkout $CI_COMMIT_BRANCH
+  START_VERSION=$(git describe 2>&1) || :
+  SED_VERSION_REGEX='([0-9]+).([0-9]+).([0-9]+)(.*)'
+  HOTFIX_INCREMENT='\1.\2.$((\3+1))-'
+  MINOR_INCREMENT='\1.$((\2+1)).0-'
+  MAJOR_INCREMENT='$((\1+1)).0.0-'
+  SNAPSHOT_INCREMENT='\1.\2.\$((\3+1))-'
+  PREVIOUS_TAG_ALL=$(git tag | { grep -e SNAPSHOT -e RELEASE || :; } | sort -V | tail -n1)
+  if [[ "$PREVIOUS_TAG_ALL" == "" ]]; then PREVIOUS_TAG_ALL=0.0.0-RELEASE; fi
+  PREVIOUS_TAG_RELEASE=$(git tag | { grep -e RELEASE || :; } | sort -V | tail -n1)
+  if [[ "$PREVIOUS_TAG_RELEASE" == "" ]]; then PREVIOUS_TAG_RELEASE=0.0.0-RELEASE; fi
+  case $CI_COMMIT_BRANCH in
+    develop)
+      PREVIOUS_TAG=$PREVIOUS_TAG_ALL
+      VERSION_TYPE=SNAPSHOT
+      if [[ "$PREVIOUS_TAG" =~ .*-RELEASE ]]; then
+        INCREMENT_RECIPE=$SNAPSHOT_INCREMENT
+        echo "RELEASE detected in version string: \"$PREVIOUS_TAG\"."
+      elif [[ "$PREVIOUS_TAG" =~ .*-SNAPSHOT ]]; then
+        INCREMENT_RECIPE=$SNAPSHOT_INCREMENT
+        echo "SNAPSHOT detected in version string: \"$PREVIOUS_TAG\"."
+      else
+        echo "RELEASE nor SNAPSHOT detected in version string: \"$PREVIOUS_TAG\"."
+      fi;;
+    master|main)
+      VERSION_TYPE=RELEASE
+      PREVIOUS_TAG=$PREVIOUS_TAG_RELEASE
+      if [[ "$LABEL" == "major" ]]; then
+        INCREMENT_RECIPE=$MAJOR_INCREMENT
+      elif [[ "$LABEL" == "hotfix" ]]; then
+        INCREMENT_RECIPE=$HOTFIX_INCREMENT
+      else
+        INCREMENT_RECIPE=$MINOR_INCREMENT
+      fi;;
+    *)
+      echo "No case selected"
+      exit 1;;
+  esac
+  echo  "This job runs for branch \"$CI_COMMIT_BRANCH\", SED_VERSION_REGEX is \"$SED_VERSION_REGEX\"INCREMENT_RECIPE is \"$INCREMENT_RECIPE\"."
+  if [[ "$START_VERSION" =~ ^[0-9]+.[0-9]+.[0-9]+-[A-Z]+-.*-.* || "$START_VERSION" =~ ^[0-9]+.[0-9]+.[0-9]+.[0-9]+-[A-Z]+-.*-.* || "$START_VERSION" == "fatal: No names found, cannot describe anything." || "$START_VERSION" == "" ]]; then
+    echo "This commit was not previously tagged, continuing tag procedure"
+  else
+    echo "Skiping tag, this commit is already tagged with $START_VERSION!"
+    exit 2
+  fi
+  echo "Last version, tagged on an previous commit, was $PREVIOUS_TAG"
+  git tag -a\
+    $(echo $PREVIOUS_TAG |\
+    sed -r 's/'"$SED_VERSION_REGEX"'/echo '"$INCREMENT_RECIPE$VERSION_TYPE"'/ge')\
+    -m "update version - increment \"$VERSION_TYPE\" position for \"$CI_COMMIT_BRANCH branch\"" $CI_COMMIT_SHA
+  git push -o ci.skip --follow-tag
+
+version_bump:
+  image: vvvaaalll/git
+  stage: version
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - rm -rf ./*
+    - *increment_version
+  allow_failure:
+    exit_codes:
+      - 2
+      - 3
+  only:
+    - main
+    - develop
+
+\end{lstlisting}
+
 
 \end{document}

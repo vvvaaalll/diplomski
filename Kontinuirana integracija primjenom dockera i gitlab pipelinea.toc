@@ -1,0 +1,29 @@
+\babel@toc {croatian}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}%
+\contentsline {section}{\numberline {2}Kontinuirana integracija}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Definicija kontinuirane integracije}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Izazovi implementacije kontinuirane integracije}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Proces kontinuirane integracije}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Platforme za provedbu kontinuirane integracije}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Pregled popularnih platformi}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Karakteristike i funkcionalnosti platformi}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Odabir najprikladnije platforme za implementaciju}{10}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Gitlab pipeline koncepti i primjena}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Faze i zadatci u gitlab pipelineu}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Definiranje gitlab CI/CD konfiguracije}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Docker i povezivanje s dockerom za kontejnerizaciju aplikacije}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Izgradnja, testiranje, i implementacija aplikacije koristeći gitlab pipeline}{15}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Implementacija web aplikacije i kontinuirane integracije pomoću gitlab pipelinea u razvoju aplikacije}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Odabir jezika i frameworka za backend aplikaciju}{16}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Pregled i opis jave i spring boot frameworka}{16}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Arhitektura web aplikacije}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Implementacija funkcionalnosti backend aplikacije}{16}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Postavljanje gitlab repozitorija za aplikaciju}{16}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Definiranje gitlab ci/cd konfiguracije za aplikaciju}{16}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Testiranje, izgradnja i objavljivanje aplikacije putem gitlab pipelinea}{16}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Automatsko pokretanje testova i osiguranje kvalitete koda}{16}{subsection.5.8}%
+\contentsline {section}{Sa\v {z}etak}{17}{subsection.5.8}%
+\contentsline {section}{Abstract}{18}{subsection.5.8}%
+\contentsline {section}{\v {Z}ivotopis}{20}{subsection.5.8}%
+\contentsline {section}{Prilog 1}{21}{subsection.5.8}%
+\contentsfinish 
