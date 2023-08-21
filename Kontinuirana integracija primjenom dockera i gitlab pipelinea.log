@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.13)  13 AUG 2023 20:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.13)  22 AUG 2023 01:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,6 +763,8 @@ Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 (C:\Program Files\MiKTeX\tex/latex/newunicodechar\newunicodechar.sty
 Package: newunicodechar 2018/04/08 v1.2 Defining Unicode characters
 )
+   defining Unicode char U+2212 (decimal 8722)
+
 (C:\Program Files\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \c@tracingmulticols=\count433
@@ -839,28 +841,29 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count443
 \@quotereset=\count444
-No file "Kontinuirana integracija primjenom dockera i gitlab pipelinea".aux.
+(Kontinuirana integracija primjenom dockera i gitlab pipelinea.aux)
 \openout1 = `"Kontinuirana integracija primjenom dockera i gitlab pipelinea.aux
 "'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+
 
 Package scrlayer-scrpage Warning: Very small head height detected!
 (scrlayer-scrpage)                Using scrlayer-scrpage the head height
@@ -892,15 +895,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \celsius on input line 126.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 126
+LaTeX Info: Redefining \celsius on input line 128.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 128
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 126.
-Package gensymb Info: Using \Omega for \ohm on input line 126.
+LaTeX Info: Redefining \ohm on input line 128.
+Package gensymb Info: Using \Omega for \ohm on input line 128.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -909,13 +912,16 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count451
-Package hyperref Info: Link coloring ON on input line 126.
+Package hyperref Info: Link coloring ON on input line 128.
+(Kontinuirana integracija primjenom dockera i gitlab pipelinea.out)
+(Kontinuirana integracija primjenom dockera i gitlab pipelinea.out)
 \@outlinefile=\write4
 \openout4 = `"Kontinuirana integracija primjenom dockera i gitlab pipelinea.out
 "'.
 
 Package biblatex Info: Trying to load language 'croatian'...
 Package biblatex Info: ... file 'croatian.lbx' found.
+
 (C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\croatian.lbx
 File: croatian.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
@@ -930,28 +936,29 @@ Package biblatex Info: ... file '"Kontinuirana integracija primjenom dockera i
 gitlab pipelinea".bbl' not found.
 
 No file "Kontinuirana integracija primjenom dockera i gitlab pipelinea".bbl.
-Package biblatex Info: Reference section=0 on input line 126.
-Package biblatex Info: Reference segment=0 on input line 126.
+Package biblatex Info: Reference section=0 on input line 128.
+Package biblatex Info: Reference segment=0 on input line 128.
 [1
 
 {C:/Users/vvvaa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-No file "Kontinuirana integracija primjenom dockera i gitlab pipelinea".toc.
+(Kontinuirana integracija primjenom dockera i gitlab pipelinea.toc)
 \tf@toc=\write5
 \openout5 = `"Kontinuirana integracija primjenom dockera i gitlab pipelinea.toc
 "'.
 
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 20
-0.
+2.
+
 (C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 200
+LaTeX Font Info:    Trying to load font information for U+msa on input line 202
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 200
+LaTeX Font Info:    Trying to load font information for U+msb on input line 202
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -967,7 +974,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                  \setlength{\headheight}{21.74998pt}
 (scrlayer-scrpage)                in your preamble.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 2
-00.
+02.
 
 
 Overfull \vbox (9.74998pt too high) has occurred while \output is active []
@@ -983,114 +990,328 @@ Package scrlayer-scrpage Warning: \footheight to low.
 (scrlayer-scrpage)                  \setlength{\footheight}{21.74998pt}
 (scrlayer-scrpage)                in your preamble.
 (scrlayer-scrpage)                I'll also increase \footskip on input line 20
-0.
+2.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.200 \newpage
+l.202 \newpage
                [1] [2]
 
 LaTeX Warning: Citation 'cowell2023automating' on page 3 undefined on input lin
-e 215.
+e 217.
 
 
 LaTeX Warning: Citation 'humble2010continuous' on page 3 undefined on input lin
-e 219.
+e 221.
 
 
 LaTeX Warning: Citation 'humble2010continuous' on page 3 undefined on input lin
-e 224.
-
-
-LaTeX Warning: Reference `f:izazovi implementacije kontinuirane integracije' on
- page 3 undefined on input line 228.
+e 226.
 
 [3]
-<./Slike/izazovi implementacije kontinuirane integracije.png, id=29, 1099.85907
-pt x 356.0803pt>
+<./Slike/izazovi implementacije kontinuirane integracije.png, id=186, 1099.8590
+7pt x 356.0803pt>
 File: ./Slike/izazovi implementacije kontinuirane integracije.png Graphic file 
 (type png)
 <use ./Slike/izazovi implementacije kontinuirane integracije.png>
 Package pdftex.def Info: ./Slike/izazovi implementacije kontinuirane integracij
-e.png  used on input line 233.
+e.png  used on input line 235.
 (pdftex.def)             Requested size: 483.93948pt x 156.67581pt.
 
 
-LaTeX Warning: Citation 'challenges' on page 4 undefined on input line 234.
+LaTeX Warning: Citation 'challenges' on page 4 undefined on input line 236.
 
 
-LaTeX Warning: Citation 'challenges' on page 4 undefined on input line 234.
+LaTeX Warning: Citation 'challenges' on page 4 undefined on input line 236.
 
 [4 <./Slike/izazovi implementacije kontinuirane integracije.png>]
-<./Slike/kontinuirana integracija, isporuka i implementacija.png, id=40, 1238.3
-7656pt x 470.50781pt>
+<./Slike/kontinuirana integracija, isporuka i implementacija.png, id=195, 1238.
+37656pt x 470.50781pt>
 File: ./Slike/kontinuirana integracija, isporuka i implementacija.png Graphic f
 ile (type png)
 <use ./Slike/kontinuirana integracija, isporuka i implementacija.png>
 Package pdftex.def Info: ./Slike/kontinuirana integracija, isporuka i implement
-acija.png  used on input line 272.
+acija.png  used on input line 274.
 (pdftex.def)             Requested size: 445.81522pt x 169.38268pt.
 
 
-LaTeX Warning: Citation 'ci_tools_slika' on page 5 undefined on input line 273.
+LaTeX Warning: Citation 'ci_tools_slika' on page 5 undefined on input line 275.
 
 
 
-LaTeX Warning: Citation 'ci_tools_slika' on page 5 undefined on input line 273.
+LaTeX Warning: Citation 'ci_tools_slika' on page 5 undefined on input line 275.
 
+
+
+LaTeX Warning: Citation 'brent-2020-CI/CD' on page 5 undefined on input line 27
+8.
 
 [5]
-Overfull \hbox (2.94574pt too wide) in paragraph at lines 281--281
+Overfull \hbox (2.94574pt too wide) in paragraph at lines 282--282
 |[]\T1/cmr/bx/n/14.4 PLATFORME ZA PRO-VEDBU KON-TI-NU-IRANE IN-TE-GRA-CIJE| 
  []
 
-[6 <./Slike/kontinuirana integracija, isporuka i implementacija.png>] [7]
-[8] [9] [10] [11]
-<./Slike/gitlab ci job overview main branch.png, id=87, 871.75688pt x 242.40562
-pt>
+[6 <./Slike/kontinuirana integracija, isporuka i implementacija.png>]
+
+LaTeX Warning: Citation 'katalon_ci_tools' on page 7 undefined on input line 31
+7.
+
+
+LaTeX Warning: Citation 'atlassian_ci_tools' on page 7 undefined on input line 
+317.
+
+
+LaTeX Warning: Citation 'top_7_ci_tools' on page 7 undefined on input line 317.
+
+
+
+Overfull \hbox (2.7274pt too wide) in paragraph at lines 317--318
+\T1/cmr/m/n/12 formi koje nude op-seºnu po-dr-²ku i in-te-gra-ciju za rad s Doc
+-ker kon-te-nje-rima [[],
+ []
+
+[7] [8] [9] [10] [11]
+<./Slike/gitlab ci job overview main branch.png, id=237, 417.81094pt x 164.8659
+4pt>
 File: ./Slike/gitlab ci job overview main branch.png Graphic file (type png)
 <use ./Slike/gitlab ci job overview main branch.png>
 Package pdftex.def Info: ./Slike/gitlab ci job overview main branch.png  used o
-n input line 466.
-(pdftex.def)             Requested size: 435.87738pt x 121.2025pt.
-
-
-LaTeX Warning: Reference `f:prikaz Gitlab posla s pripadajuÄ‡im fazama' on page
- 12 undefined on input line 470.
-
-[12 <./Slike/gitlab ci job overview main branch.png>]
-Overfull \hbox (4.50821pt too wide) in paragraph at lines 483--484
+n input line 467.
+(pdftex.def)             Requested size: 208.90495pt x 82.43275pt.
+ [12 <./Slike/gitlab ci job overview main branch.png>]
+Overfull \hbox (4.50821pt too wide) in paragraph at lines 484--485
 []\T1/cmr/m/n/12 Postoji ot-pri-like 30 klju£-nih ri-je£i dos-tup-nih za ko-ri-
 ²te-nje u da-to-teci .gitlab-ci.yml. Umjesto
  []
 
-<./Slike/docker klijent-server model.png, id=96, 664.73344pt x 367.3725pt>
+<./Slike/docker klijent-server model.png, id=246, 664.73344pt x 367.3725pt>
 File: ./Slike/docker klijent-server model.png Graphic file (type png)
 <use ./Slike/docker klijent-server model.png>
 Package pdftex.def Info: ./Slike/docker klijent-server model.png  used on input
- line 493.
+ line 494.
 (pdftex.def)             Requested size: 332.3659pt x 183.68579pt.
 
-LaTeX Warning: Citation 'kane2023docker' on page 13 undefined on input line 494
+LaTeX Warning: Citation 'kane2023docker' on page 13 undefined on input line 495
 .
 
 
-LaTeX Warning: Citation 'kane2023docker' on page 13 undefined on input line 494
+LaTeX Warning: Citation 'kane2023docker' on page 13 undefined on input line 495
 .
 
-[13 <./Slike/docker klijent-server model.png>] [14] [15] [16] [17] [18]
+[13 <./Slike/docker klijent-server model.png>] [14]
+Overfull \hbox (4.06995pt too wide) in paragraph at lines 510--511
+\T1/cmr/m/n/12 voda na-lazi se na gi-tlabu na slje-de-¢oj po-vez-nici: https://
+gitlab.com/tarantulas/file-management. 
+ []
 
-LaTeX Warning: Empty bibliography on input line 569.
 
-[19] [20]
+LaTeX Warning: Citation 'walls2016spring' on page 15 undefined on input line 51
+2.
+
+
+LaTeX Warning: Citation 'springBootInAction' on page 15 undefined on input line
+ 512.
+
+
+LaTeX Warning: Citation 'springBootInAction' on page 15 undefined on input line
+ 512.
+
+
+LaTeX Warning: Citation 'springBootInAction' on page 15 undefined on input line
+ 519.
+
+[15]
+
+LaTeX Warning: Citation 'spring-mvc-url' on page 16 undefined on input line 523
+.
+
+<Slike/AppArchitecture.png, id=262, 1164.60094pt x 871.75688pt>
+File: Slike/AppArchitecture.png Graphic file (type png)
+<use Slike/AppArchitecture.png>
+Package pdftex.def Info: Slike/AppArchitecture.png  used on input line 528.
+(pdftex.def)             Requested size: 483.69684pt x 362.065pt.
+
+LaTeX Warning: Reference `fig:app-architecture' on page 16 undefined on input l
+ine 533.
+
+
+LaTeX Warning: Reference `fig:dijagram-arch-apk' on page 16 undefined on input 
+line 533.
+
+<Slike/springMvcLogic.png, id=263, 634.62094pt x 668.4975pt>
+File: Slike/springMvcLogic.png Graphic file (type png)
+<use Slike/springMvcLogic.png>
+Package pdftex.def Info: Slike/springMvcLogic.png  used on input line 539.
+(pdftex.def)             Requested size: 241.84842pt x 254.75592pt.
+
+LaTeX Warning: Citation 'springArchitectureLayers' on page 16 undefined on inpu
+t line 540.
+
+
+LaTeX Warning: Citation 'springArchitectureLayers' on page 16 undefined on inpu
+t line 540.
+
+[16 <./Slike/AppArchitecture.png>]
+
+LaTeX Warning: Reference `fig:swagger-ui' on page 17 undefined on input line 55
+6.
+
+
+LaTeX Warning: Reference `fig:swagger-api-call' on page 17 undefined on input l
+ine 556.
+
+<Slike/swagger-ui.png, id=270, 967.36406pt x 985.43156pt>
+File: Slike/swagger-ui.png Graphic file (type png)
+<use Slike/swagger-ui.png>
+Package pdftex.def Info: Slike/swagger-ui.png  used on input line 560.
+(pdftex.def)             Requested size: 483.69684pt x 492.72961pt.
+<Slike/swagger-api-call.png, id=271, 966.61125pt x 970.3753pt>
+File: Slike/swagger-api-call.png Graphic file (type png)
+<use Slike/swagger-api-call.png>
+Package pdftex.def Info: Slike/swagger-api-call.png  used on input line 567.
+(pdftex.def)             Requested size: 483.69684pt x 485.58624pt.
+
+LaTeX Warning: Reference `fig:git-create-blank' on page 17 undefined on input l
+ine 574.
+
+<Slike/git-create-blank-project.png, id=272, 962.84718pt x 532.99126pt>
+File: Slike/git-create-blank-project.png Graphic file (type png)
+<use Slike/git-create-blank-project.png>
+Package pdftex.def Info: Slike/git-create-blank-project.png  used on input line
+ 578.
+(pdftex.def)             Requested size: 483.69684pt x 267.74742pt.
+
+LaTeX Warning: Citation 'springArchitectureLayers' on page 17 undefined on inpu
+t line 579.
+
+
+LaTeX Warning: Citation 'springArchitectureLayers' on page 17 undefined on inpu
+t line 579.
+
+[17 <./Slike/springMvcLogic.png>] [18 <./Slike/swagger-ui.png>] [19 <./Slike/sw
+agger-api-call.png>]
+
+LaTeX Warning: Reference `fig:git-variables' on page 20 undefined on input line
+ 585.
+
+<Slike/gitlab-variables.png, id=292, 1206.00563pt x 345.54094pt>
+File: Slike/gitlab-variables.png Graphic file (type png)
+<use Slike/gitlab-variables.png>
+Package pdftex.def Info: Slike/gitlab-variables.png  used on input line 595.
+(pdftex.def)             Requested size: 483.69684pt x 138.583pt.
+
+Overfull \hbox (2.98256pt too wide) in paragraph at lines 605--606
+\T1/cmr/m/n/12 linku: https://gitlab.com/base58-public/ci/templates/-/blob/main
+/Jobs/Auto-Versioning.yml.
+ []
+
+[20 <./Slike/git-create-blank-project.png>]
+
+LaTeX Warning: Reference `fig:versioning-tree' on page 21 undefined on input li
+ne 616.
+
+
+LaTeX Warning: Reference `fig:label selection' on page 21 undefined on input li
+ne 616.
+
+<Slike/label-selection.png, id=299, 194.22563pt x 230.36063pt>
+File: Slike/label-selection.png Graphic file (type png)
+<use Slike/label-selection.png>
+Package pdftex.def Info: Slike/label-selection.png  used on input line 621.
+(pdftex.def)             Requested size: 193.47577pt x 229.47777pt.
+<Slike/versioning-tree.png, id=300, 1296.34312pt x 589.4522pt>
+File: Slike/versioning-tree.png Graphic file (type png)
+<use Slike/versioning-tree.png>
+Package pdftex.def Info: Slike/versioning-tree.png  used on input line 628.
+(pdftex.def)             Requested size: 483.69684pt x 219.93773pt.
+
+LaTeX Warning: Citation 'base58' on page 21 undefined on input line 629.
+
+
+LaTeX Warning: Citation 'base58' on page 21 undefined on input line 629.
+
+
+LaTeX Warning: Reference `fig:docker-versions' on page 21 undefined on input li
+ne 635.
+
+<Slike/docker-versions.png, id=301, 518.6878pt x 251.43938pt>
+File: Slike/docker-versions.png Graphic file (type png)
+<use Slike/docker-versions.png>
+Package pdftex.def Info: Slike/docker-versions.png  used on input line 639.
+(pdftex.def)             Requested size: 290.22105pt x 140.69382pt.
+[21 <./Slike/gitlab-variables.png>] [22 <./Slike/label-selection.png> <./Slike/
+versioning-tree.png> <./Slike/docker-versions.png>]
+
+LaTeX Warning: Reference `fig:test-log' on page 23 undefined on input line 654.
+
+
+
+LaTeX Warning: Reference `fig:snyk-select-git' on page 23 undefined on input li
+ne 656.
+
+
+LaTeX Warning: Reference `fig:snyk-gitlab-token' on page 23 undefined on input 
+line 656.
+
+
+LaTeX Warning: Reference `fig:snyk-issues' on page 23 undefined on input line 6
+56.
+
+<Slike/snyk-select-git.png, id=318, 606.01407pt x 483.30562pt>
+File: Slike/snyk-select-git.png Graphic file (type png)
+<use Slike/snyk-select-git.png>
+Package pdftex.def Info: Slike/snyk-select-git.png  used on input line 660.
+(pdftex.def)             Requested size: 290.22105pt x 231.46046pt.
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 661.
+
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 661.
+
+<Slike/snyk-gitlab-token.png, id=319, 978.65625pt x 356.83313pt>
+File: Slike/snyk-gitlab-token.png Graphic file (type png)
+<use Slike/snyk-gitlab-token.png>
+Package pdftex.def Info: Slike/snyk-gitlab-token.png  used on input line 667.
+(pdftex.def)             Requested size: 483.69684pt x 176.36342pt.
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 668.
+
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 668.
+
+<Slike/snyk-issues.png, id=320, 1742.76094pt x 877.77937pt>
+File: Slike/snyk-issues.png Graphic file (type png)
+<use Slike/snyk-issues.png>
+Package pdftex.def Info: Slike/snyk-issues.png  used on input line 674.
+(pdftex.def)             Requested size: 483.69684pt x 243.62015pt.
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 675.
+
+
+LaTeX Warning: Citation 'snyk' on page 23 undefined on input line 675.
+
+<Slike/test-log.png, id=321, 505.89pt x 173.89969pt>
+File: Slike/test-log.png Graphic file (type png)
+<use Slike/test-log.png>
+Package pdftex.def Info: Slike/test-log.png  used on input line 681.
+(pdftex.def)             Requested size: 290.22105pt x 99.76598pt.
+[23] [24 <./Slike/snyk-select-git.png> <./Slike/snyk-gitlab-token.png>]
+[25 <./Slike/snyk-issues.png> <./Slike/test-log.png>] [26] [27] [28]
+
+LaTeX Warning: Empty bibliography on input line 718.
+
+[29] (C:\Program Files\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) [30] [31]
+[32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44]
 
 Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
-[21] (Kontinuirana integracija primjenom dockera i gitlab pipelinea.aux)
+[45] (Kontinuirana integracija primjenom dockera i gitlab pipelinea.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-06-16>
@@ -1110,8 +1331,8 @@ ra i gitlab pipelinea".out' has changed.
 
 Package rerunfilecheck Info: Checksums for `"Kontinuirana integracija primjenom
  dockera i gitlab pipelinea".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  1A89A27F23058CE905D333EB3395AB8C;7145.
+(rerunfilecheck)             Before: 1A89A27F23058CE905D333EB3395AB8C;7145
+(rerunfilecheck)             After:  A1E2235BEDBA33FDC453AD99A77B4294;6841.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                "Kontinuirana integracija primjenom dockera i gitlab 
@@ -1125,27 +1346,38 @@ ockera i gitlab pipelinea".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26253 strings out of 476037
- 471484 string characters out of 5789660
- 1870763 words of memory out of 5000000
- 46629 multiletter control sequences out of 15000+600000
- 526069 words of font info for 66 fonts, out of 8000000 for 9000
+ 27953 strings out of 476037
+ 496446 string characters out of 5789660
+ 2233763 words of memory out of 5000000
+ 47676 multiletter control sequences out of 15000+600000
+ 526835 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 123i,20n,121p,2194b,1668s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecti1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1440.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\eccc2074.pk> <C:\Users\vvvaa\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\vvvaa\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1728.pk>
+ 123i,20n,121p,2194b,2029s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.5.8} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.4.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm06
+00.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+tcrm1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecti1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecbx1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecbx1440.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\vvvaa\AppData\Local\MiKTeX
+\fonts/pk/ljfour/jknappen/ec/dpi600\eccc2074.pk> <C:\Users\vvvaa\AppData\Local\
+MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\vvvaa\AppData\
+Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1728.pk><C:/Program Files/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb>
 Output written on "Kontinuirana integracija primjenom dockera i gitlab pipeline
-a.pdf" (22 pages, 315182 bytes).
+a.pdf" (46 pages, 1447242 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1572 PDF objects out of 1728 (max. 8388607)
+ 698 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
