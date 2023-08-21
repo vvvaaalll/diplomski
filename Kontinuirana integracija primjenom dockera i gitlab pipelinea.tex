@@ -239,7 +239,7 @@ Kroz eksperimentalno istraživanje provedeno na Odjelu za računalne znanosti i 
 \subsection{Proces kontinuirane integracije}
 Tijekom faze kontinuirane integracije (CI), promjene razvojnog programera spajaju se i provjeravaju kako bi se osiguralo da kod ostaje funkcionalan. Glavni cilj CI-ja je brzo provjeriti te izmjene koda i odmah obavijestiti programera o svim problemima. Ovaj proces minimizira vrijeme tijekom kojeg je baza koda neupotrebljiva uslijed novo uvedenih pogrešaka. CI otkriva promjene koda i izvršava relevantne procese izgradnje kako bi pokazao da se promjene koda mogu uspješno izgraditi. Također može provoditi ciljane testove kako bi potvrdio da promjene koda rade neovisno, pri čemu ulazi proizvode željene izlaze i identificiraju i postupaju očekivano rukovajući pogrešnim ulazima.
 
-Kontinuirana isporuka odnosi se na niz automatiziranih procesa, poznatih kao cjevovod, koji uključuje promjene koda i izvršava izgradnju, testiranje, pakiranje i povezane operacije za generiranje izdanja softvera koje se može koristiti. Općenito, to se postiže s malo ili nimalo ljudske intervencije.
+Kontinuirana isporuka odnosi se na niz automatiziranih procesa, poznatih kao cjevovod, koji uključuje promjene koda i izvršava izgradnju, testiranje, pakiranje i povezane operacije za generiranje verzije softvera koji se može koristiti. Općenito, to se postiže s malo ili nimalo ljudske intervencije.
 
 Kontinuirana isporuka preuzima promjene koje je potvrdio i spojio CI i nastavlja s preostalim procesima u cjevovodu kako bi se proizveli željeni rezultati. Po izboru, može pokrenuti procese kontinuirane implementacije kako bi se izdanja automatski učinila dostupnima korisnicima. Mehanizam koji se koristi za kontinuiranu isporuku obično se naziva cjevovod kontinuirane isporuke, iako može imati i druga imena.
 
@@ -275,8 +275,7 @@ Vrijedno je naglasiti da samo zato što se može postići kontinuirana implement
 	\caption{kontinuirana integracija, isporuka i implementacija \cite{ci_tools_slika} \label{f:kontinuirana integracija, isporuka i implementacija}} % LABEL UVIJEK UNUTAR CAPTIONA. 
 \end{figure}
 
-Vraćanje ili poništavanje implementacije za sve korisnike može biti skupa situacija, i tehnički i u smislu percepcije korisnika. Stoga odluka o tome treba li primijeniti oslobađanje iz cjevovoda može uključivati ljudsku prosudbu. Mogu se upotrijebiti različite metode za "testiranje" verzije aplikacije prije njegove potpune implementacije, stoga je preporuka da se posljednja verzija testira u integracijskoj okolini prije njezine implementacije za korisnike u produkcijsku okolinu. 
-(Continuous Integration vs. Continuous Delivery vs. Continuous Deployment, 2nd Edition)
+Vraćanje ili poništavanje implementacije za sve korisnike može biti skupa situacija, i tehnički i u smislu percepcije korisnika. Stoga odluka o tome treba li primijeniti oslobađanje iz cjevovoda može uključivati ljudsku prosudbu. Mogu se upotrijebiti različite metode za "testiranje" verzije aplikacije prije njegove potpune implementacije, stoga je preporuka da se posljednja verzija testira u integracijskoj okolini prije njezine implementacije za korisnike u produkcijsku okolinu.\cite{brent-2020-CI/CD} Na slici \ref{f:kontinuirana integracija, isporuka i implementacija} prikazana je razlika kontinuirane integracije, isporuke i implementacije.
 
 \newpage
 
@@ -315,7 +314,7 @@ Postoje brojne platforme za kontinuiranu integraciju no neke od najpopularnijih 
 
 
 \subsection{Karakteristike i funkcionalnosti platformi}
-GitLab CI/CD, Jenkins, CircleCI, Travis CI i TeamCity neke su od najpopularnijih CI/CD platformi koje nude opsežnu podršku i integraciju za rad s Docker kontenjerima. Izbor između njih može ovisiti o čimbenicima kao što su specifični zahtjevi, preference alata i cjelokupni DevOps ekosustav u organizaciji. Činjenica da su ove platforme najpopularnije, ne znači da ostale platforme ne pružaju gotovo iste mogućnosti. U nastavku dan je pregled glavnih karakteristika i funkcionalnosti prethodno nabrojanih platformi.
+GitLab CI/CD, Jenkins, CircleCI, Travis CI i TeamCity neke su od najpopularnijih CI/CD platformi koje nude opsežnu podršku i integraciju za rad s Docker kontenjerima \cite{katalon_ci_tools, atlassian_ci_tools, top_7_ci_tools}. Izbor između njih može ovisiti o čimbenicima kao što su specifični zahtjevi, preference alata i cjelokupni DevOps ekosustav u organizaciji. Činjenica da su ove platforme najpopularnije, ne znači da ostale platforme ne pružaju gotovo iste mogućnosti. U nastavku dan je pregled glavnih karakteristika i funkcionalnosti prethodno nabrojanih platformi.
 
 \begin{enumerate}
 
@@ -466,7 +465,7 @@ Kada su u pitanju komponente GitLab CI/CD cjevovoda, poslovi se mogu promatrati 
 \begin{figure}[ht!] % [ht!] - opcija koja definira polozaj slike h-here, t-top, !-ne slusaj latexov AI. 
 	\centering % - centrira sliku
 	\includegraphics[scale=0.5]{./Slike/gitlab ci job overview main branch.png} % [scale] - skalira dimenziju slike, moze i [width=1\linewidth] i slicno. 
-	\caption{prikaz Gitlab posla s pripadajućim fazama (placeholder slika) \label{f:prikaz Gitlab posla s pripadajućim fazama}} % LABEL UVIJEK UNUTAR CAPTIONA. 
+	\caption{prikaz Gitlab posla s pripadajućim fazama \label{f:prikaz Gitlab posla s pripadajućim fazama}} % LABEL UVIJEK UNUTAR CAPTIONA. 
 \end{figure}
 
 Gledajući sliku zaslona \ref{f:prikaz Gitlab posla s pripadajućim fazama}, možemo uočiti da faza izgradnje uključuje posao pod nazivom build-job, faza testiranja uključuje posao pod nazivom test-job, a faza Deploy uključuje posao pod nazivom deploy-job.
@@ -496,7 +495,7 @@ Docker se može podijeliti u dvije glavne komponente: klijent i poslužitelj/dae
 	\caption{Docker klijent/server model \cite{kane2023docker} \label{f:docker klijent/server model}} % LABEL UVIJEK UNUTAR CAPTIONA. 
 \end{figure}
 
-Docker ima jedinstvenu strukturu u usporedbi s nekim drugim klijent/poslužitelj softverima. Sastoji se od docker klijenta i dockerd poslužitelja. Međutim, umjesto da bude potpuno monolitan, poslužitelj koordinira razne druge komponente u pozadini u ime klijenta. Jedna od tih komponenti je containerd-shim-runc-v2, koja olakšava interakciju s runc i containerd. Unatoč ovim temeljnim složenostima, Docker pojednostavljuje proces pružanjem jednostavnog sučelja klijenta i poslužitelja. U većini slučajeva može ga se shvatiti kao jednostavnog klijenta i poslužitelja. Tipično, svaki Docker host pokreće jedan Docker poslužitelj koji može upravljati s više kontenjera. Za komunikaciju s poslužiteljem moguće je koristiti command-line alat docker, bilo izravno sa samog poslužitelja ili, ako je prikladno osiguran, s udaljenog klijenta.
+Docker ima jedinstvenu strukturu u usporedbi s nekim drugim klijent/poslužitelj softverima. Sastoji se od docker klijenta i dockerd poslužitelja. Međutim, umjesto da bude potpuno monolitan, poslužitelj koordinira razne druge komponente u pozadini u ime klijenta. Jedna od tih komponenti je containerd-shim-runc-v2, koja olakšava interakciju s runc i containerd. Unatoč ovim temeljnim složenostima, Docker pojednostavljuje proces pružanjem jednostavnog sučelja klijenta i poslužitelja, prikazanog na slici \ref{f:docker klijent/server model}. U većini slučajeva može ga se shvatiti kao jednostavnog klijenta i poslužitelja. Tipično, svaki Docker host pokreće jedan Docker poslužitelj koji može upravljati s više kontenjera. Za komunikaciju s poslužiteljem moguće je koristiti command-line alat docker, bilo izravno sa samog poslužitelja ili, ako je prikladno osiguran, s udaljenog klijenta.
 
 Command-line alat Docker pruža oznaku izgradnje koja omogućuje korištenje Dockerfilea za izradu Docker slike. Svaka uputa unutar Dockerfilea pridonosi novom sloju unutar slike, čineći jednostavnim razumijevanje radnji koje se izvršavaju pogledom u Dockerfile. Značajna prednost ove standardizacije je da svaki inženjer koji ima iskustva s Dockerfileom može lako modificirati proces izgradnje za različite aplikacije. Zbog standardizirane prirode Docker slika, alati uključeni u izgradnju ostaju dosljedni, bez obzira na programski jezik, osnovnu sliku ili broj uključenih slojeva. Obično se Docker datoteke pohranjuju u sustavima za kontrolu revizija, što pojednostavljuje praćenje promjena u izradi.
 
@@ -510,7 +509,7 @@ Mnoge izgradnje Dockera izvode se jednim pozivanjem naredbe za izgradnju slike d
 
 Kreirana aplikacija s pripadajućom gitlab-ci.yaml datotekom koja sadrži konfiguraciju cjevovoda nalazi se na gitlabu na sljedećoj poveznici: https://gitlab.com/tarantulas/file-management. 
 
- Za izradu web aplikacije kojoj je konfigurirana kontinuirana integracija, korištenjem gitlab cjevovoda, korišten je Spring Boot okvir. Spring Boot pruža pomoć u upravljanju ovisnostima projekta kroz koncept "početnih ovisnosti". Ove početne ovisnosti funkcioniraju kao jedinstvene Maven (i Gradle) ovisnosti, iskorištavajući mehanizam tranzitivnog rješavanja ovisnosti za prikupljanje često korištenih biblioteka pod nekoliko odabranih ovisnosti specifičnih za značajke.\cite{springBootInAction} Za izradu aplikacije korišten je Apache Maven, koji je okvir za upravljanje projektima otvorenog koda, temeljen na standardima koji pojednostavljuju izgradnju, testiranje, izvješćivanje i pakiranje projekata. Maven naredbe pokreću se kroz komandnu liniju, što je bitno za mogućnost konfiguracije cjevovoda. Implementacija kreirane aplikacije nalazi se na gitlab repozitoriju na linku: https://gitlab.com/tarantulas/file-management. Pokretanjem projekta moguće je pristupiti generiranoj swagger dokumentaciji na http://localhost:8080/swagger-ui/index.html.
+ Za izradu web aplikacije kojoj je konfigurirana kontinuirana integracija, korištenjem gitlab cjevovoda, korišten je Spring Boot okvir. Spring Boot pruža pomoć u upravljanju ovisnostima projekta kroz koncept "početnih ovisnosti" \cite{walls2016spring}. Ove početne ovisnosti funkcioniraju kao jedinstvene Maven (i Gradle) ovisnosti, iskorištavajući mehanizam tranzitivnog rješavanja ovisnosti za prikupljanje često korištenih biblioteka pod nekoliko odabranih ovisnosti specifičnih za značajke.\cite{springBootInAction} Za izradu aplikacije korišten je Apache Maven, koji je okvir za upravljanje projektima otvorenog koda, temeljen na standardima koji pojednostavljuju izgradnju, testiranje, izvješćivanje i pakiranje projekata. Maven naredbe pokreću se kroz komandnu liniju, što je bitno za mogućnost konfiguracije cjevovoda \cite{springBootInAction}. Implementacija kreirane aplikacije nalazi se na gitlab repozitoriju na linku: https://gitlab.com/tarantulas/file-management.
 
 \subsection{Pregled i opis jave i spring boot frameworka}
 
@@ -521,17 +520,17 @@ Ipak, izbjeći konfiguracijske zahtjeve pokazalo se nedostižnim. Eksplicitna ko
 
 \subsection{Arhitektura web aplikacije}
 
-Aplikacija je kreirana koristeći Spring MVC obrazac. Spring Web model-view-controller (MVC) okvir dizajniran je oko DispatcherServleta koji šalje zahtjeve rukovateljima, s konfigurabilnim mapiranjem rukovatelja, postavkama pogleda, lokalizacijom i postavkama teme kao i podrškom za učitavanje datoteka. Zadani rukovatelj temelji se na anotacijama @Controller i @RequestMapping, nudeći širok raspon fleksibilnih metoda rukovanja komunikacijom s klijentom. S uvođenjem Spring 3.0, mehanizam @Controller također vam omogućuje stvaranje RESTful web stranica i aplikacija, putem @PathVariable anotacije i drugih značajki.\cite{springMVCUrl} 
+Aplikacija je kreirana koristeći Spring MVC obrazac. Spring Web model-view-controller (MVC) okvir dizajniran je oko DispatcherServleta koji šalje zahtjeve rukovateljima, s konfigurabilnim mapiranjem rukovatelja, postavkama pogleda, lokalizacijom i postavkama teme kao i podrškom za učitavanje datoteka. Zadani rukovatelj temelji se na anotacijama @Controller i @RequestMapping, nudeći širok raspon fleksibilnih metoda rukovanja komunikacijom s klijentom. S uvođenjem Spring 3.0, mehanizam @Controller također vam omogućuje stvaranje RESTful web stranica i aplikacija, putem @PathVariable anotacije i drugih značajki.\cite{spring-mvc-url} 
 
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Slike/AppArchitecture.png}
     \caption{Dijagram arhitekture web aplikacije}
-    \label{fig:dijagram-arch-apk}
+    \label{fig:app-architecture}
 \end{figure}
 
-Na slici \ref{fig:dijagram-arch-apk} prikazana je međuovisnost glavnih dijelova spring boot arhitekture na primjeru kreirane aplikacije. Spring boot arhitektura razvoja aplikacije razdvaja aplikaciju u četiri sloja. Sloj baze podataka. Drugi je sloj repozitorija u kojem koristeći JPA (Java Persistence API) jer omogućuje lakšu komunikaciju s bazom podataka dajući gotove metode za manipulaciju podatcima u bazi, no također omogućuje lako pisanje metoda uz definiciju Query naredbe koristeći anotaciju @Query. Poslovni sloj bavi se logikom rada aplikacije, ovdje se nalazi izvršavanje kalkulacija, dohvaćanje podataka iz baze kroz repozitorij i autorizacija. Posljednji, sloj Spring Boot arhitekture je prezentacijski sloj. Posljednji sloj Spring Boot arhitekture je prezentacijski sloj. U ovom sloju se definira kontroller aplikacije i pristupne točke za komunikaciju Spring Boot aplikacijom. 
+Na slici \ref{fig:app-architecture} prikazana je međuovisnost glavnih dijelova spring boot arhitekture na primjeru kreirane aplikacije. Spring boot arhitektura razvoja aplikacije razdvaja aplikaciju u četiri sloja , prikazana na slici \ref{fig:dijagram-arch-apk}. Prvi je sloj baze podataka, nakon njega slijedi sloj repozitorija. U sloju repozitorija JPA (Java Persistence API) omogućuje lakšu komunikaciju s bazom podataka dajući gotove metode za manipulaciju podatcima u bazi. Uz predefinirane metode omogućuje lako pisanje vlastitih metoda uz definiciju Query naredbe koristeći anotaciju @Query. Poslovni sloj bavi se logikom rada aplikacije, ovdje se nalazi izvršavanje kalkulacija, dohvaćanje podataka iz baze kroz repozitorij i autorizacija. Posljednji, sloj Spring Boot arhitekture je prezentacijski sloj. U posljednjem sloju definira se kontroler aplikacije i pristupne točke za komunikaciju sa Spring Boot aplikacijom.
 
 
 
@@ -554,6 +553,22 @@ Aplikacija ima definirane CRUD (skraćenica engleskog kreiraj, dohvati, izmijeni
 
 Na danom primjeru kontrolera bitno je obratiti pažnju na anotacije metoda i same klase. Kontroler klasa označava se @RestController anotacijom. Na primjeru je moguće uočiti @Operation anotaciju za generiranje swagger dokumentacije, @SecurityRequirements i mapping anotacije kojima se definira RESTfull mrežni servis. U kontroler korisničkim podatcima korištenjem loombok anotacije @RequiredArgsConstructor radi se ubrizgavanje ovisnosti UserService (poslovnog sloja) kroz konstruktor.
 
+Za implementirane REST pristupne točke konfigurirana je swagger dokumentacija. Za generiranje dokumentacije, u aplikaciji je potrebno konfigurirati OpenAPI klasu. Kreirana konfiguracija dana je u prilogu 6. Nakon konfiguracije, na http://localhost:8080/swagger-ui/index.html moguće je vidjeti generiranu dokumentaciju i testirati kreirane funkcionalnosti. Snimka zaslona dokumentacije pristupnih točaka za upravljanje podatcima prikazana je na slici \ref{fig:swagger-ui}. Primjer poziva pristupne točke za generiranje autentifikacijskog tokena, korištenjem korisničkog imena i lozinke, dan je na slici \ref{fig:swagger-api-call}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/swagger-ui.png}
+    \caption{Prikaz obrasca za kreiranje gitlab projekta}
+    \label{fig:swagger-ui}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/swagger-api-call.png}
+    \caption{Prikaz poziva i odziva pristupne točke za generiranje tokena, korištenjem swagger dokumentacije.}
+    \label{fig:swagger-api-call}
+\end{figure}
+
 \subsection{Postavljanje gitlab repozitorija za aplikaciju}
 
 Pri kreiranju projekta na gitlab korisničkom sučelju moguće je odabrati opciju za kreiranje novog repozitorija. Klikom za gumb za izradu novog repozitorija otvara se obrazac, prikazan na slici \ref{fig:git-create-blank}, koji je potrebno popuniti željenim podatcima.
@@ -567,7 +582,7 @@ Pri kreiranju projekta na gitlab korisničkom sučelju moguće je odabrati opcij
 
 Nakon kreiranog repozitorija, moguće ga je klonirati na lokalno računalo, ili koristiti gitlab IDE za razvoj aplikacije. Gitlab posjeduje zadani gitlab-runner, no za potrebe projekta kreiran je vlastiti gitlab-runner na Google cloud vitualnoj mašini koji će se koristiti za izvođenje kontinuirane implementacije. Upute kreiranja gitlab-runnera moguće je pronaći u službenoj gitlab dokumentaciji na linku: https://docs.gitlab.com/runner.  
 
-Vrlo korisna mogućnost gitlaba je kreiranje varijabli. Varijable se mogu koristiti za pohranu osjetljivih informacija, kao što su lozinke i tajni ključevi, i moguće ih je koristiti u gitlab-ci konfiguraciji. Varijable se mogu klasificirati u tri vrste: zaštićene, maskirane i proširene.
+Vrlo korisna mogućnost gitlaba je kreiranje varijabli. Na slici \ref{fig:git-variables} prikazano je sučelje za upravljanje gitlab CI/CD varijablama. Varijable se mogu koristiti za pohranu osjetljivih informacija, kao što su lozinke i tajni ključevi, i moguće ih je koristiti u gitlab-ci konfiguraciji. Varijable se mogu klasificirati u tri vrste: zaštićene, maskirane i proširene.
 \begin{itemize}
     \item Zaštićene varijable izložene su samo zaštićenim granama ili zaštićenim oznakama. To znači da neće biti vidljive korisnicima koji nisu ovlašteni za pregled zaštićenih grana ili oznaka.
     \item Maskirane varijable skrivene su u zapisnicima poslova. To znači da će biti zamijenjeni zvjezdicama u zapisnicima poslova, što ih čini nečitljivima. Maskirane varijable također moraju odgovarati zahtjevima maskiranja, što su pravila koja određuju koliko su osjetljive informacije maskirane.
@@ -598,7 +613,7 @@ Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slu
 
 \item Korak pokretanja testova pokreće maven docker kontenjer unutar kojeg se izvrši naredba mvn test koja pokreće kreirane integracijske testove.
 
-\item Korak verzioniranja definiran je u umetnutoj skripti. Skripta vodi brigu o verzijama aplikacije koristeći gitlab api kroz korištenje tagova na zahtjevima spajanja koda za određivanje kako uvećati verziju. Definirani tagovi korišteni za izmjene verzije koda prikazani su na slici \ref{fig:label selection}. Kod skripte za verzioniranje aplikacije dan je u prilogu 5.
+\item Korak verzioniranja definiran je u umetnutoj skripti. Skripta vodi brigu o verzijama aplikacije koristeći gitlab api kroz korištenje tagova na zahtjevima spajanja koda za određivanje kako uvećati verziju. Prikaz tijeka verzija aplikacije prikazan je na slici \ref{fig:versioning-tree}. Izbornik s konfiguriranim git tagovima korištenim za izmjene verzije koda prikazan je na slici \ref{fig:label selection}, a kod skripte za verzioniranje aplikacije nalazi se u prilogu 5.
 \end{itemize}
 
 \begin{figure}
@@ -611,7 +626,7 @@ Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slu
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Slike/versioning-tree.png}
-    \caption{Prikaz dijagrama verzioniranja aplikacije s pripadajućim oznakama}
+    \caption{Prikaz dijagrama verzioniranja aplikacije s pripadajućim oznakama \cite{base58}}
     \label{fig:versioning-tree}
 \end{figure}
 
@@ -637,6 +652,29 @@ Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slu
 \subsection{Automatsko pokretanje testova i osiguranje kvalitete koda}
 
 Prilikom razvoja aplikacije, za svaku kontroler klasu kreiran je set integracijskih testova koje je moguće pokrenuti prilikom pokretanja mvn test naredbe unutar cjevovoda. Ukoliko postoje testovi koji nisu prošli validaciju, prekida se cjevodod i novi kod nije moguće spojiti u develop i main grane. Kreirani integracijski testovi prezentacijskog sloja, upravlanja korisničkim podatcima, dani su u prilogu 1. Po završetku izvođenja koraka testiranja, moguće je otići na prikaz izvršenih pipeline poslova gdje su vidljivi logovi aplikacije, kao i informacija o uspješnosti izvođenja testovova. Na slici \ref{fig:test-log} vidljiv je isječak zaslona logiranog uspjega izgradnje aplikacije i uspješnosti pokrenutih testova. Izvršavanje svih koraka cjevovoda na granama novih značajki i development grani u prosjeku traje tri minute, dok izvršavanje svih koraka cjevovoda na main grani traje u prosjeku četiri minute. Vrijeme trajanja izvršavanja svih koraka cjevovoda objektivno djeluje kratko no, uzevši u obzir da stotine ljudi istovremeno može raditi na istom projektu, velik dio vremena proveden je čekajući izvršavanje svih koraka cjevovoda kako bi kod bilo moguće spojiti u drugu granu. Uzimajući u obzir da je implementacijom kontinuirane integracije osigurano da svaka nova verzija koda provjereno radi, da nije potrebno ulagati resurse u ručno testiranje svih mogućnosti aplikacije, vrijeme provedeno čekajući izvršavanje cjevovoda zanemarivo je u odnosu na vrijeme koje bi bilo potrebno za ručno testiranje i implementaciju svake nove verzije aplikacije. 
+
+Uz pokretanje kreiranih automatskih testova, u cjevovod je vrlo lako dodati korak provjere sigurnosnih opasnosti i skeniranja paketa korištenih u aplikaciji. Za kreiranu aplikaciju konfiguriran je snyk. Snyk je sigurnosna platforma za programere koja omogućuje brzo i lako dodavanje provjere kvalitete koda. Nakon registracije na snyk platformu, korisnika se odmah upita na gojem git servisu senalazi aplikacija i upute za postavljanje snyk koraka u cjevovod aplikacije. Na slici \ref{fig:snyk-select-git} prikazana je snimka zaslona za odabir korištenog git servisa. Pritiskom na "View all integrations" u izborniku se prikazuje veći izbornik u kojem se nalazi i gumb za odabir gitlaba. Odabirom konfiguracije gitlaba i klikom na "Next step", otvara se panel za povezivanje snyk servisa i gitlaba. Komunikacija snyk i gitlab servisa omogućena korištenjem gitlab autentifikacijskog tokena, izbornik za dodavanje tokena prikazan je na slici \ref{fig:snyk-gitlab-token}. Nakon povezivanja gitlab repozitorija, snyk omogućuje postavljanje učestalosti pokretanja snyk provjera. Za kreirani projekt postavljen je interval od jednog tjedna, a posljednji rezultat, prikazan je na slici \ref{fig:snyk-issues}. Snyk, uz samo detektiranje propusta u verzijama paketa korištenim u aplikaciji, nudi kratko objašnjenje problema i prijedog rješenja. Za snyk predložena rješenja za propuste omogućeno je kreiranje zahtjeva za spajanje koda u main granu. Preporuka je lokalno provjeriti hoće li nova verzija korištenog paketa potrgati postojeće funkcionalnosti aplikacije.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{Slike/snyk-select-git.png}
+    \caption{Prikaz izbornika za konfiguraciju snyk servisa s aplikacijom.\cite{snyk}}
+    \label{fig:snyk-select-git}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/snyk-gitlab-token.png}
+    \caption{Prikaz izbornika za konfiguraciju konekcije snyk servisa s gitlabom.\cite{snyk}}
+    \label{fig:snyk-gitlab-token}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Slike/snyk-issues.png}
+    \caption{Prikaz panela pronađenih snyk problema sortiranih po prioritetu.\cite{snyk}}
+    \label{fig:snyk-issues}
+\end{figure}
 
 \begin{figure}
     \centering
@@ -678,27 +716,7 @@ This paper investigates the concept of continuous integration (CI) and its imple
 \newpage
 
 \printbibliography[heading=bibintoc]
-\nocite{duvall-2007-continuous}
-\nocite{brent-2020-CI/CD}
-\nocite{van2023continuous}
-\nocite{humble2010continuous}
-\nocite{kim2016devops}
-\nocite{cowell2023automating}
-\nocite{vinto2022gitops}
-\nocite{dejonghe2020nginx}
-\nocite{kane2023docker}
-\nocite{leszko2019continuous}
-\nocite{rawat2023ci}
-\nocite{challenges}
-\nocite{pr_Blirnan1999}
-\nocite{atlassian_ci_tools}
-\nocite{katalon_ci_tools}
-\nocite{ci_tools_slika}
-\nocite{top_7_ci_tools}
-\nocite{gitlab_vs_jenkins_BrowserStack}
-\notice{spring-mvc-url}
-\notice{springArchitectureLayers}
-\notice{base58}
+
 \newpage
 \section*{Životopis}
 \addcontentsline{toc}{section}{\v{Z}ivotopis}
@@ -713,7 +731,7 @@ tehnologija gdje 2021. godine upisuje diplomski studij, smjer Računarstvo.
 
 
 \newpage
-\section*{Prilog 1}
+\section*{Prilog 1- UserController.java}
 \label{prilog 1}
 \addcontentsline{toc}{section}{Prilog 1}
 UserController.java klasa s definicijom RESTfull pristupnih točaka za manipulaciju korisničkim podatcima.
@@ -1292,6 +1310,86 @@ version_bump:
     - develop
 
 \end{lstlisting}
+
+\newpage
+\section*{Prilog 6 - OpenApiConfiguration.java}
+\label{prilog 6}
+\addcontentsline{toc}{section}{Prilog 6}
+OpenApiConfiguration klasa s definicijom swagger dokumentacije.
+
+\begin{lstlisting}[language=Java]
+
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+import org.springdoc.core.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@SecurityScheme(
+        name = "Bearer Authentication",
+        type = SecuritySchemeType.HTTP,
+        bearerFormat = "JWT",
+        scheme = "bearer"
+)
+public class OpenApiConfiguration {
+
+    @Bean
+    public OpenAPI springOpenAPI() {
+        return new OpenAPI()
+                .info(
+                        new Info()
+                                .title("Tarantulas backend service")
+                                .description("Manage user access and data, add and manage tarantulas and image files")
+                                .license(
+                                        new License()
+                                                .name("Apache 2.0")
+                                                .url("http://www.apache.org/licenses/LICENSE-2.0")));
+    }
+
+
+    @Bean
+    public GroupedOpenApi publicApiImageFiles() {
+        return GroupedOpenApi.builder()
+                .group("Image files management")
+                .pathsToMatch("/api/image-file/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi publicApiTarantula() {
+        return GroupedOpenApi.builder()
+                .group("Tarantulas management")
+                .pathsToMatch("/api/tarantula/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi UsersApi() {
+        return GroupedOpenApi.builder()
+                .group("Users")
+                .pathsToMatch("/api/users/**")
+
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi AuthApi() {
+        return GroupedOpenApi.builder()
+                .group("Authentication")
+                .pathsToMatch("/api/token/**")
+
+                .build();
+    }
+
+}
+
+
+\end{lstlisting}
+
 
 
 \end{document}
