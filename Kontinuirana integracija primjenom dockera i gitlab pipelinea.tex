@@ -225,7 +225,7 @@ Ova je okolnost dodatno naglašena u projektima koji koriste proširene grane il
 \subsection{Definicija kontinuirane integracije}
 Koncept kontinuirane integracije prvi puta je predstavljen u knjizi Kenta Becka "Extreme Programming Explained" \cite{beck2000extreme}, prvobitno objavljenoj 1999. Slijedeći načela ekstremnog programiranja, kontinuirana integracija proizašla je iz ideje da ako je redovita integracija baze koda korisna, zašto je ne učiniti stalnom praksom? U domeni integracije, "cijelo vrijeme" se odnosi na svaku instancu kada je izvršena bilo kakva izmjena u sustavu kontrole verzija.
 
-Kontinuirana integracija označava značajan pomak u načinu razmišljanja. U nedostatku kontinuirane integracije, softver ostaje neispravan sve dok netko ne dokaže njegovu funkcionalnost, obično tijekom faza testiranja ili implementacije \cite{humble2010continuous}. Međutim, uz kontinuiranu integraciju, funkcionalnost softvera se provjerava (pod pretpostavkom prisutnosti odgovarajuće sveobuhvatnog paketa automatiziranih testova) sa svakom novom promjenom, a svi problemi se odmah identificiraju za trenutačnu verziju koda. Timovi koji učinkovito provode kontinuiranu integraciju mogu ubrzati isporuku softvera i naići na manje nedostataka u usporedbi s onima koji to ne čine. Otkrivanjem grešaka u ranoj fazi procesa isporuke, kada je manji trošak otkloniti ih, postižu se znatne uštede u pogledu vremena i troškova. Uslijed toga, kontinuiranu integraciju smatramo nezamjenjivom praksom za profesionalne timove.
+Kontinuirana integracija označava značajan pomak u načinu razmišljanja. U nedostatku kontinuirane integracije, softver ostaje neispravan sve dok netko ne dokaže njegovu funkcionalnost, obično tijekom faza testiranja ili implementacije \cite{humble2010continuous}. Međutim, uz kontinuiranu integraciju, funkcionalnost softvera se provjerava (pod pretpostavkom prisutnosti odgovarajućeg sveobuhvatnog paketa automatiziranih testova) sa svakom novom promjenom, a svi problemi se odmah identificiraju za trenutačnu verziju koda. Timovi koji učinkovito provode kontinuiranu integraciju mogu ubrzati isporuku softvera i naići na manje nedostataka u usporedbi s onima koji to ne čine. Otkrivanjem grešaka u ranoj fazi procesa isporuke, kada je manji trošak otkloniti ih, postižu se znatne uštede u pogledu vremena i troškova. Uslijed toga, kontinuiranu integraciju smatramo nezamjenjivom praksom za profesionalne timove.
 
 
 \subsection{Izazovi implementacije kontinuirane integracije}
@@ -307,7 +307,7 @@ Osim tehničke sofisticiranosti, bitno je da se CI platforma uskladi s projektom
 
 Uzimajući u obzir tehničke aspekte i kompatibilnost s projektom i zahtjevima tvrtke, moguće je odabrati dobro zaokruženu CI platformu koja usmjerava razvojni proces i pridonosi cjelokupnom uspjehu projekta.
 
-\newpage
+
 
 \subsection{Pregled popularnih platformi}
 Postoje brojne platforme za kontinuiranu integraciju no neke od najpopularnijih su:
@@ -330,7 +330,7 @@ Postoje brojne platforme za kontinuiranu integraciju no neke od najpopularnijih 
 
 
 \subsection{Karakteristike i funkcionalnosti platformi}
-GitLab CI/CD, Jenkins, CircleCI, Travis CI i TeamCity neke su od najpopularnijih CI/CD platformi koje nude opsežnu podršku i integraciju za rad s Docker kontenjerima \cite{katalon_ci_tools, atlassian_ci_tools, top_7_ci_tools}. Izbor između njih može ovisiti o čimbenicima kao što su specifični zahtjevi, preference alata i cjelokupni DevOps ekosustav u organizaciji. Činjenica da su ove platforme najpopularnije, ne znači da ostale platforme ne pružaju gotovo iste mogućnosti. U nastavku dan je pregled glavnih karakteristika i funkcionalnosti prethodno nabrojanih platformi.
+GitLab CI/CD, Jenkins, CircleCI, Travis CI i TeamCity neke su od najpopularnijih CI/CD platformi koje nude opsežnu podršku i integraciju za rad s Docker kontejnerima \cite{katalon_ci_tools, atlassian_ci_tools, top_7_ci_tools}. Izbor između njih može ovisiti o čimbenicima kao što su specifični zahtjevi, preference alata i cjelokupni DevOps ekosustav u organizaciji. Činjenica da su ove platforme najpopularnije, ne znači da ostale platforme ne pružaju gotovo iste mogućnosti. U nastavku dan je pregled glavnih karakteristika i funkcionalnosti prethodno nabrojanih platformi.
 
 \begin{enumerate}
 
@@ -339,7 +339,7 @@ GitLab CI
 
 GitLab \cite{gitlab} je opsežan skup alata dizajniranih za nadgledanje različitih aspekata procesa razvoja softvera. U svojoj srži, GitLab je platforma temeljena na webu koja služi kao Git repozitorij, nudeći funkcionalnosti kao što su praćenje problema, analitika i Wiki za podršku kolaborativnom razvoju.
 
-Jedna od bitnih značajki GitLaba je njegova sposobnost pokretanja izgradnje, izvršavanja testova i automatske implementacije koda sa svakom objavljenom promjenom. To znači da kad god se naprave promjene u bazi koda, GitLab može pokrenuti potrebne procese kako bi osigurao integritet i kvalitetu softvera. Ti se procesi mogu provesti unutar virtualnog stroja, Docker kontenjera ili na drugom poslužitelju, pružajući fleksibilnost i prilagodljivost razvojnom okruženju.
+Jedna od bitnih značajki GitLaba je njegova sposobnost pokretanja izgradnje, izvršavanja testova i automatske implementacije koda sa svakom objavljenom promjenom. To znači da kad god se naprave promjene u bazi koda, GitLab može pokrenuti potrebne procese kako bi osigurao integritet i kvalitetu softvera. Ti se procesi mogu provesti unutar virtualnog stroja, Docker kontejnera ili na drugom poslužitelju, pružajući fleksibilnost i prilagodljivost razvojnom okruženju.
 
 Neke od glavnih karakteristika su:
 \begin{itemize}
@@ -379,9 +379,9 @@ Integracijom CircleCI-ja s platformama kao što su GitHub, GitHub Enterprise i B
 
 Neke od glavnih karakteristika su:
 \begin{itemize}
-\item Linux planovi počinju s opcijom pokretanja jednog posla bez paralelizma bez naknade. Projekti otvorenog koda dobivaju tri dodatna besplatna kontenjera. Tijekom prijave prikazane su cijene kako bi se korisnici odlučili koji plan(ove) trebaju.
+\item Linux planovi počinju s opcijom pokretanja jednog posla bez paralelizma bez naknade. Projekti otvorenog koda dobivaju tri dodatna besplatna kontejnera. Tijekom prijave prikazane su cijene kako bi se korisnici odlučili koji plan(ove) trebaju.
 \item Integracija je dostupna s Bitbucketom, GitHubom i GitHub Enterpriseom.
-\item Izgradnje koda se mogu izvršiti pomoću kontenjera ili virtualnih strojeva.
+\item Izgradnje koda se mogu izvršiti pomoću kontejnera ili virtualnih strojeva.
 \item Jednostavno otklanjanje pogrešaka.
 \item Dostupne su mogućnosti automatizirane paralelizacije.
 \item Brzi procesi testiranja.
@@ -473,7 +473,7 @@ Ove tri faze unaprijed su konfigurirane u GitLabovim zadanim postavkama cjevovod
 
 Ne postoji ograničenje broja faza koje je moguće definirati. Čak i za vrlo jednostavne projekte, možemo stvoriti pojednostavljeni cjevovod sa samo jednom fazom. Imena faza mogu se birati slobodno, dopuštajući razmake i razne interpunkcijske simbole. Kako bi se osigurala čitljivost, predlaže se da imena faza budu što  sažetija, bez žrtvovanja jasnoće, jer duga imena mogu biti skraćena u GitLabovom grafičkom korisničkom sučelju.
 
-Važno je napomenuti da GitLab ne provjerava tematsku vezu između zadataka unutar faze; ova odgovornost leži na osobi koja ih implementira. Posljedično, postoji sloboda kreiranja neorganiziranog i neorganiziranog cjevovoda. Na primjer, moguće je pokrenuti automatizirane regresijske testove u fazi pod nazivom "Primjena dokumentacije" ili implementirati dokumentaciju u fazi pod nazivom "priprema-testnog okruženja". Podjela cjevododa u faze i dodjela zadataka svakoj fazi u potpunosti je na osobi koja vrši implementaciju. Smatra se najboljom praksom povremeno pregledavanje i refaktoriranje strukture cjevovoda kako bi se osigurala jasnoća i dosljednost.
+Važno je napomenuti da GitLab ne provjerava tematsku vezu između zadataka unutar faze; ova odgovornost leži na osobi koja ih implementira. Posljedično, postoji sloboda kreiranja neorganiziranog cjevovoda. Na primjer, moguće je pokrenuti automatizirane regresijske testove u fazi pod nazivom "Primjena dokumentacije" ili implementirati dokumentaciju u fazi pod nazivom "priprema-testnog okruženja". Podjela cjevododa u faze i dodjela zadataka svakoj fazi u potpunosti je na osobi koja vrši implementaciju. Smatra se najboljom praksom povremeno pregledavanje i refaktoriranje strukture cjevovoda kako bi se osigurala jasnoća i dosljednost.
 
 
 Kada su u pitanju komponente GitLab CI/CD cjevovoda, poslovi se mogu promatrati kao sljedeća razina ispod faza. Svaki stupanj sadrži jedan ili više poslova, a svaki posao pripada određenom stupnju.
@@ -501,7 +501,7 @@ Postoji otprilike 30 ključnih riječi dostupnih za korištenje u datoteci \text
 
 \subsection{Docker i povezivanje s dockerom za kontejnerizaciju aplikacije}
 
-Docker ekosustav potaknuo je uspješnu zajednicu koja se sastoji od programera i administratora sustava. Slično pokretu DevOps, ova je zajednica prepoznala vrijednost rješavanja operativnih izazova putem koda, što je dovelo do razvoja poboljšanih alata. U slučajevima kada Dockerov izvorni alat zakaže, razne tvrtke i pojedinci su preuzeli inicijativu da popune te nedostatke pa tako primjerice GitLab ima dostupan vlastiti Docker registar u koji se mogu spremati kontenjerizirane verzije aplikacije. Mnogi Docker alati su otvorenog koda, što omogućuje njihovo proširenje i prilagodbu drugim organizacijama kako bi zadovoljile svoje specifične zahtjeve. 
+Docker ekosustav potaknuo je uspješnu zajednicu koja se sastoji od programera i administratora sustava. Slično pokretu DevOps, ova je zajednica prepoznala vrijednost rješavanja operativnih izazova putem koda, što je dovelo do razvoja poboljšanih alata. U slučajevima kada Dockerov izvorni alat zakaže, razne tvrtke i pojedinci su preuzeli inicijativu da popune te nedostatke pa tako primjerice GitLab ima dostupan vlastiti Docker registar u koji se mogu spremati kontejnerizirane verzije aplikacije. Mnogi Docker alati su otvorenog koda, što omogućuje njihovo proširenje i prilagodbu drugim organizacijama kako bi zadovoljile svoje specifične zahtjeve. 
 
 Docker se može podijeliti u dvije glavne komponente: klijent i poslužitelj/daemon. Dodatno, postoji izborna treća komponenta koja se zove registar, koja služi kao pohrana Docker slika i njihovih metapodataka. Poslužitelj/daemon odgovoran je za kontinuirane zadatke izgradnje, pokretanja i upravljanja spremnicima, dok se klijent koristi za davanje uputa poslužitelju o radnjama koje treba izvršiti. Docker demon se može instalirati na više poslužitelja unutar infrastrukture, a jedan klijent može komunicirati s više poslužitelja. Klijenti djeluju kao glavni pokretači komunikacije, ali Docker poslužitelji također mogu izravno komunicirati s registrima slika prema uputama klijenta. U tom kontekstu, klijenti su odgovorni za izdavanje uputa poslužiteljima, dok su poslužitelji prvenstveno usredotočeni na hosting i upravljanje kontejnerskim aplikacijama.
 
@@ -511,13 +511,13 @@ Docker se može podijeliti u dvije glavne komponente: klijent i poslužitelj/dae
 	\caption{Docker klijent/server model \cite{kane2023docker} \label{f:docker klijent/server model}} % LABEL UVIJEK UNUTAR CAPTIONA. 
 \end{figure}
 
-Docker ima jedinstvenu strukturu u usporedbi s nekim drugim klijent/poslužitelj softverima. Sastoji se od docker klijenta i dockerd poslužitelja. Međutim, umjesto da bude potpuno monolitan, poslužitelj koordinira razne druge komponente u pozadini u ime klijenta. Jedna od tih komponenti je containerd-shim-runc-v2, koja olakšava interakciju s runc i containerd. Unatoč ovim temeljnim složenostima, Docker pojednostavljuje proces pružanjem jednostavnog sučelja klijenta i poslužitelja, prikazanog na slici \ref{f:docker klijent/server model}. U većini slučajeva može ga se shvatiti kao jednostavnog klijenta i poslužitelja. Tipično, svaki Docker host pokreće jedan Docker poslužitelj koji može upravljati s više kontenjera. Za komunikaciju s poslužiteljem moguće je koristiti command-line alat docker, bilo izravno sa samog poslužitelja ili, ako je prikladno osiguran, s udaljenog klijenta.
+Docker ima jedinstvenu strukturu u usporedbi s nekim drugim klijent/poslužitelj softverima. Sastoji se od docker klijenta i dockerd poslužitelja. Međutim, umjesto da bude potpuno monolitan, poslužitelj koordinira razne druge komponente u pozadini u ime klijenta. Jedna od tih komponenti je containerd-shim-runc-v2, koja olakšava interakciju s runc i containerd. Unatoč ovim temeljnim složenostima, Docker pojednostavljuje proces pružanjem jednostavnog sučelja klijenta i poslužitelja, prikazanog na slici \ref{f:docker klijent/server model}. U većini slučajeva može ga se shvatiti kao jednostavnog klijenta i poslužitelja. Tipično, svaki Docker host pokreće jedan Docker poslužitelj koji može upravljati s više kontejnera. Za komunikaciju s poslužiteljem moguće je koristiti command-line alat docker, bilo izravno sa samog poslužitelja ili, ako je prikladno osiguran, s udaljenog klijenta.
 
 Command-line alat Docker pruža oznaku izgradnje koja omogućuje korištenje Dockerfilea za izradu Docker slike. Svaka uputa unutar Dockerfilea pridonosi novom sloju unutar slike, čineći jednostavnim razumijevanje radnji koje se izvršavaju pogledom u Dockerfile. Značajna prednost ove standardizacije je da svaki inženjer koji ima iskustva s Dockerfileom može lako modificirati proces izgradnje za različite aplikacije. Zbog standardizirane prirode Docker slika, alati uključeni u izgradnju ostaju dosljedni, bez obzira na programski jezik, osnovnu sliku ili broj uključenih slojeva. Obično se Docker datoteke pohranjuju u sustavima za kontrolu revizija, što pojednostavljuje praćenje promjena u izradi.
 
 U modernim višestupanjskim Docker izgradnjama moguće je odvojiti okruženje za izradu od konačne slike artefakta. Ovo odvajanje nudi široku konfiguraciju za okruženje izgradnje, slično konfiguracijskim mogućnostima dostupnim za proizvodne spremnike.
 
-Mnoge izgradnje Dockera izvode se jednim pozivanjem naredbe za izgradnju slike dockera, što rezultira jednim artefaktom, naime slikom kontenjera. Budući da je većina logike izgradnje obično sadržana unutar samog Dockerfilea, postaje jednostavno stvoriti standardizirane poslove izgradnje koje mogu koristiti različite platforme u sustavima izgradnje kao što je Jenkins. Osim toga, brojne tvrtke, uključujući eBay, prihvatile su standardizaciju Linux kontenjera za izradu slika pomoću Dockerfilea. SaaS platforme za izgradnju kontinuirane integracije kao što su Travis CI i CodeShip također nude robusnu podršku za Docker gradnje, integrirajući ih kao temeljne značajke svojih usluga.
+Mnoge izgradnje Dockera izvode se jednim pozivanjem naredbe za izgradnju slike dockera, što rezultira jednim artefaktom, naime slikom kontejnera. Budući da je većina logike izgradnje obično sadržana unutar samog Dockerfilea, postaje jednostavno stvoriti standardizirane poslove izgradnje koje mogu koristiti različite platforme u sustavima izgradnje kao što je Jenkins. Osim toga, brojne tvrtke, uključujući eBay, prihvatile su standardizaciju Linux kontejnera za izradu slika pomoću Dockerfilea. SaaS platforme za izgradnju kontinuirane integracije kao što su Travis CI i CodeShip također nude robusnu podršku za Docker gradnje, integrirajući ih kao temeljne značajke svojih usluga.
 
 \newpage
 
@@ -580,7 +580,7 @@ Na slici \ref{fig:app-architecture} prikazana je međuovisnost glavnih dijelova 
 
 \subsection{Implementacija funkcionalnosti backend aplikacije}
 
-Aplikacija ima definirane CRUD (skraćenica engleskog kreiraj, dohvati, izmijeni, obriši) servise za upravljanjem podatcima korisnika, tarantula i slika. U nastavku je dan kod implementacije UserController klase koja predstavlja prezentacijski sloj aplikacije za rad s podatcima korisnika. Kod \texttt{UserController.java} klase, u kojem se nalazi definicija REST pristupnih točaka dan je u prilogu 1.
+Aplikacija ima definirane CRUD (skraćenica engleskog kreiraj, dohvati, izmijeni, obriši) servise za upravljanje podatcima korisnika, tarantula i slika. U nastavku je dan kod implementacije UserController klase koja predstavlja prezentacijski sloj aplikacije za rad s podatcima korisnika. Kod \texttt{UserController.java} klase, u kojem se nalazi definicija REST pristupnih točaka dan je u prilogu 1.
 
 
 
@@ -636,16 +636,16 @@ Vrlo korisna mogućnost GitLaba je kreiranje varijabli. Na slici \ref{fig:git-va
 GitLab ci/cd konfiguracija definira se u \texttt{gitlab-ci.yaml} datoteci smještenoj u korjenskoj mapi projekta. U prilogu 2 prikazan je \texttt{gitlab-ci.yaml} kod konfiguracije.
 
 
-Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slučaju dodana je skripta otvorenog koda, korištena za verzioniranje aplikacije, koju je moguće pronaći na linku: \texttt{https://gitlab.com/base58-public/ci/templates/-/blob/main/Jobs\-/Auto-Versioning.yml}. Nakon dodavanja ovisnosti, definiran je docker kontenjer koji sadrži instaliran docker servis kako bismo unutar njega mogli pokrenuti druge docker kontenjere tijekom izvršavanja cjevovoda. Na primjeru konfiguracije korišten je \texttt{docker:19.03.12−dind} kontenjer unutar kojeg se za korištenje maven naredbi pokreće \texttt{maven:3.8.3−openjdk−17} kontenjer čija je verzija definirana varijablom. Prije opisa pojedinog koraka izvođenja cjevovoda potrebno je navesti korake pod stages definicijom unutar yaml datoteke. U primjeru definirano je pet koraka izvođenja cjevovoda aplikacije. Definirani su koraci za izgradnju aplikacije, pokretanje testova, verzioniranje apliakcije, pakiranje i implementaciju. 
+Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slučaju dodana je skripta otvorenog koda, korištena za verzioniranje aplikacije, koju je moguće pronaći na linku: \texttt{https://gitlab.com/base58-public/\-ci/\-templates/-/blob/\-main/\-Jobs/\-Auto-Versioning.yml}. Nakon dodavanja ovisnosti, definiran je docker kontejner koji sadrži instaliran docker servis kako bismo unutar njega mogli pokrenuti druge docker kontejnere tijekom izvršavanja cjevovoda. Na primjeru konfiguracije korišten je \texttt{docker:19.03.12−dind} kontejner unutar kojeg se za korištenje maven naredbi pokreće \texttt{maven:3.8.3−openjdk−17} kontejner čija je verzija definirana varijablom. Prije opisa pojedinog koraka izvođenja cjevovoda potrebno je navesti korake pod stages definicijom unutar yaml datoteke. U primjeru definirano je pet koraka izvođenja cjevovoda aplikacije. Definirani su koraci za izgradnju aplikacije, pokretanje testova, verzioniranje apliakcije, pakiranje i implementaciju. 
 
 
 \subsection{Testiranje, izgradnja i objavljivanje aplikacije putem GitLab pipelinea}
 
 \begin{itemize}
 
-\item Korak za izgradnju aplikacije pokreće maven docker kontenjer unutar kojeg se izvrši naredba \texttt{mvn package −B −Dmaven.test.skip=true} kojom maven aplikaciju izgradi, zapakira i spremi u mapu target. U koraku izgradnje i pakiranja aplikacije isključen je korak testiranja.
+\item Korak za izgradnju aplikacije pokreće maven docker kontejner unutar kojeg se izvrši naredba \texttt{mvn package −B −Dmaven.test.skip=true} kojom maven aplikaciju izgradi, zapakira i spremi u mapu target. U koraku izgradnje i pakiranja aplikacije isključen je korak testiranja.
 
-\item Korak pokretanja testova pokreće maven docker kontenjer unutar kojeg se izvrši naredba \texttt{mvn test} koja pokreće kreirane integracijske testove.
+\item Korak pokretanja testova pokreće maven docker kontejner unutar kojeg se izvrši naredba \texttt{mvn test} koja pokreće kreirane integracijske testove.
 
 \item Korak verzioniranja definiran je u umetnutoj skripti. Skripta vodi brigu o verzijama aplikacije koristeći GitLab API (eng. \textit{Application Programming Interface - API}) kroz korištenje tagova na zahtjevima spajanja koda za određivanje kako uvećati verziju. Prikaz tijeka verzija aplikacije prikazan je na slici \ref{fig:versioning-tree}. Izbornik s konfiguriranim git tagovima korištenim za izmjene verzije koda prikazan je na slici \ref{fig:label selection}, a kod skripte za verzioniranje aplikacije nalazi se u prilogu 5.
 \end{itemize}
@@ -666,16 +666,16 @@ Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slu
 
 \begin{itemize}
 
-\item{Korak pakiranja aplikacije, korištenjem GitLab varijabli, dohvaća podatke za pristup docker hub repozitoriju. GitLab nudi i zadani docker repozitorij koji je mogće koristiti. Prilikom izrade docker kontenjera koji sadrži aplikaciju dodaje mu se tag latest i tag verzije. Prikaz docker hub repozitorija na kojem su vidljive verzije koda nalazi se na slici \ref{fig:docker-versions}}. 
+\item{Korak pakiranja aplikacije, korištenjem GitLab varijabli, dohvaća podatke za pristup docker hub repozitoriju. GitLab nudi i zadani docker repozitorij koji je mogće koristiti. Prilikom izrade docker kontejnera koji sadrži aplikaciju dodaje mu se tag latest i tag verzije. Prikaz docker hub repozitorija na kojem su vidljive verzije koda nalazi se na slici \ref{fig:docker-versions}}. 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\linewidth]{Slike/docker-versions.png}
-    \caption{Prikaz popisa posljednje verzioniranih docker kontenjera}
+    \caption{Prikaz popisa posljednje verzioniranih docker kontejnera}
     \label{fig:docker-versions}
 \end{figure}
 
-\item Korak implementacije aplikacije izvršava se na \texttt{gitlab-runner} docker kontenjeru, unutar virtuale mašne u oblaku. U ovom koraku pokreće se docker compose konfiguracija kreirana u \texttt{docker-compose.yaml}, datoteci prikazanoj u prilogu 4. Docker compose datotekom konfigurira se docker kontenjer baze podataka, kreiranog servisa i ostatka interne mreže docker kontenjera korištenih za rad aplikacije. Docker compose omogućuje pokretanje skupa docker kontenjera, s unaprijed konfiguriranim vanjskim varijablama, jednom naredbom.
+\item Korak implementacije aplikacije izvršava se na \texttt{gitlab-runner} docker kontejneru, unutar virtuale mašine u oblaku. U ovom koraku pokreće se docker compose konfiguracija kreirana u \texttt{docker-compose.yaml}, datoteci prikazanoj u prilogu 4. Docker compose datotekom konfigurira se docker kontejner baze podataka, kreiranog servisa i ostatka interne mreže docker kontejnera korištenih za rad aplikacije. Docker compose omogućuje pokretanje skupa docker kontejnera, s unaprijed konfiguriranim vanjskim varijablama, jednom naredbom.
 
 
 
@@ -685,9 +685,9 @@ Na početku konfiguracijske datoteke prvo se konfiguriraju ovisnosti, u ovom slu
 
 \subsection{Automatsko pokretanje testova i osiguranje kvalitete koda}
 
-Prilikom razvoja aplikacije, za svaku kontroler klasu kreiran je set integracijskih testova koje je moguće pokrenuti prilikom pokretanja mvn test naredbe unutar cjevovoda. Ukoliko postoje testovi koji nisu prošli validaciju, prekida se cjevodod i novi kod nije moguće spojiti u develop i main grane. Kreirani integracijski testovi prezentacijskog sloja, upravlanja korisničkim podatcima, dani su u prilogu 1. Po završetku izvođenja koraka testiranja, moguće je otići na prikaz izvršenih pipeline poslova gdje su vidljivi logovi aplikacije, kao i informacija o uspješnosti izvođenja testovova. Na slici \ref{fig:test-log} vidljiv je isječak zaslona logiranog uspjega izgradnje aplikacije i uspješnosti pokrenutih testova. Izvršavanje svih koraka cjevovoda na granama novih značajki i development grani u prosjeku traje tri minute, dok izvršavanje svih koraka cjevovoda na main grani traje u prosjeku četiri minute. Vrijeme trajanja izvršavanja svih koraka cjevovoda objektivno djeluje kratko no, uzevši u obzir da stotine ljudi istovremeno može raditi na istom projektu, velik dio vremena proveden je čekajući izvršavanje svih koraka cjevovoda kako bi kod bilo moguće spojiti u drugu granu. Uzimajući u obzir da je implementacijom kontinuirane integracije osigurano da svaka nova verzija koda provjereno radi, da nije potrebno ulagati resurse u ručno testiranje svih mogućnosti aplikacije, vrijeme provedeno čekajući izvršavanje cjevovoda zanemarivo je u odnosu na vrijeme koje bi bilo potrebno za ručno testiranje i implementaciju svake nove verzije aplikacije. 
+Prilikom razvoja aplikacije, za svaku kontroler klasu kreiran je set integracijskih testova koje je moguće pokrenuti prilikom pokretanja mvn test naredbe unutar cjevovoda. Ukoliko postoje testovi koji nisu prošli validaciju, prekida se cjevodod i novi kod nije moguće spojiti u develop i main grane. Kreirani integracijski testovi prezentacijskog sloja, upravljanja korisničkim podatcima, dani su u prilogu 1. Po završetku izvođenja koraka testiranja, moguće je otići na prikaz izvršenih pipeline poslova gdje su vidljivi logovi aplikacije, kao i informacija o uspješnosti izvođenja testovova. Na slici \ref{fig:test-log} vidljiv je isječak zaslona logiranog uspjeha izgradnje aplikacije i uspješnosti pokrenutih testova. Izvršavanje svih koraka cjevovoda na granama novih značajki i development grani u prosjeku traje tri minute, dok izvršavanje svih koraka cjevovoda na main grani traje u prosjeku četiri minute. Vrijeme trajanja izvršavanja svih koraka cjevovoda objektivno djeluje kratko no, uzevši u obzir da stotine ljudi istovremeno može raditi na istom projektu, velik dio vremena proveden je čekajući izvršavanje svih koraka cjevovoda kako bi kod bilo moguće spojiti u drugu granu. Uzimajući u obzir da je implementacijom kontinuirane integracije osigurano da svaka nova verzija koda provjereno radi, da nije potrebno ulagati resurse u ručno testiranje svih mogućnosti aplikacije, vrijeme provedeno čekajući izvršavanje cjevovoda zanemarivo je u odnosu na vrijeme koje bi bilo potrebno za ručno testiranje i implementaciju svake nove verzije aplikacije. 
 
-Uz pokretanje kreiranih automatskih testova, u cjevovod je vrlo lako dodati korak provjere sigurnosnih opasnosti i skeniranja paketa korištenih u aplikaciji. Za kreiranu aplikaciju konfiguriran je Snyk. Snyk je sigurnosna platforma za programere koja omogućuje brzo i lako dodavanje provjere kvalitete koda. Nakon registracije na Snyk platformu, korisnika se odmah upita na gojem git servisu senalazi aplikacija i upute za postavljanje Snyk koraka u cjevovod aplikacije. Na slici \ref{fig:snyk-select-git} prikazana je snimka zaslona za odabir korištenog git servisa. Pritiskom na "View all integrations" u izborniku se prikazuje veći izbornik u kojem se nalazi i gumb za odabir GitLaba. Odabirom konfiguracije GitLaba i klikom na "Next step", otvara se panel za povezivanje Snyk servisa i GitLaba. Komunikacija Snyk i GitLab servisa omogućena korištenjem GitLab autentifikacijskog tokena, izbornik za dodavanje tokena prikazan je na slici \ref{fig:snyk-gitlab-token}. Nakon povezivanja GitLab repozitorija, Snyk omogućuje postavljanje učestalosti pokretanja Snyk provjera. Za kreirani projekt postavljen je interval od jednog tjedna, a posljednji rezultat, prikazan je na slici \ref{fig:snyk-issues}. Snyk, uz samo detektiranje propusta u verzijama paketa korištenim u aplikaciji, nudi kratko objašnjenje problema i prijedog rješenja. Za Snyk predložena rješenja za propuste omogućeno je kreiranje zahtjeva za spajanje koda (engl. \textit{Merge request}) u main granu. Preporuka je lokalno provjeriti hoće li nova verzija korištenog paketa potrgati postojeće funkcionalnosti aplikacije.
+Uz pokretanje kreiranih automatskih testova, u cjevovod je vrlo lako dodati korak provjere sigurnosnih opasnosti i skeniranja paketa korištenih u aplikaciji. Za kreiranu aplikaciju konfiguriran je Snyk. Snyk je sigurnosna platforma za programere koja omogućuje brzo i lako dodavanje provjere kvalitete koda. Nakon registracije na Snyk platformu, korisnika se odmah upita na kojem git servisu se nalazi aplikacija i upute za postavljanje Snyk koraka u cjevovod aplikacije. Na slici \ref{fig:snyk-select-git} prikazana je snimka zaslona za odabir korištenog git servisa. Pritiskom na "View all integrations" u izborniku se prikazuje veći izbornik u kojem se nalazi i gumb za odabir GitLaba. Odabirom konfiguracije GitLaba i klikom na "Next step", otvara se panel za povezivanje Snyk servisa i GitLaba. Komunikacija Snyk i GitLab servisa omogućena korištenjem GitLab autentifikacijskog tokena, izbornik za dodavanje tokena prikazan je na slici \ref{fig:snyk-gitlab-token}. Nakon povezivanja GitLab repozitorija, Snyk omogućuje postavljanje učestalosti pokretanja Snyk provjera. Za kreirani projekt postavljen je interval od jednog tjedna, a posljednji rezultat, prikazan je na slici \ref{fig:snyk-issues}. Snyk, uz samo detektiranje propusta u verzijama paketa korištenim u aplikaciji, nudi kratko objašnjenje problema i prijedlog rješenja. Za Snyk predložena rješenja za propuste omogućeno je kreiranje zahtjeva za spajanje koda (engl. \textit{Merge request}) u main granu. Preporuka je lokalno provjeriti hoće li nova verzija korištenog paketa potrgati postojeće funkcionalnosti aplikacije.
 
 \begin{figure}
     \centering
@@ -724,7 +724,7 @@ U današnjem okruženju brzog razvoja softvera, bitno je usvojiti prakse koje os
 
 Cilj ovog rada bio je istražiti i opisati koncept kontinuirane integracije korištenjem GitLab cjevovoda, te istražiti alternativne platforme koje se koriste za kontinuiranu integraciju. Ispitujući temeljna načela i najbolje prakse kontinuirane integracije, nastojano je pružiti opće razumijevanje njegovih prednosti i izazova. GitLab CI je popularan CI/CD alat koji se može koristiti za automatizaciju cijelog cjevovoda isporuke softvera, od upravljanja izvornim kodom do implementacije u produkcijsku okolinu.
 
-Rezultati implementacije pokazali su da CI/CD može značajno poboljšati učinkovitost, kvalitetu i pouzdanost životnog ciklusa razvoja softvera. Proces razvoja jedonstavnije je podijeliti na više ljudi jer razvojni programeri mogu istovremeno raditi na različitim dijelovima koda i biti sigurni da njihove promjene neće pokvariti kreirane funkcionalnosti aplikacije. Kvaliteta koda je također poboljšana, budući da su automatizirani testovi pokretani svaki put kada je napravljena promjena. To je pomoglo u otkrivanju grešaka u ranoj fazi razvoja i spriječilo njihovo uvođenje u produkcijsku okolinu. Konačno, aplikacija je implementirana u produkcijsku okolinu brže i pouzdanije, zahvaljujući automatizaciji procesa implementacije.
+Rezultati implementacije pokazali su da CI/CD može značajno poboljšati učinkovitost, kvalitetu i pouzdanost životnog ciklusa razvoja softvera. Proces razvoja jednostavnije je podijeliti na više ljudi jer razvojni programeri mogu istovremeno raditi na različitim dijelovima koda i biti sigurni da njihove promjene neće pokvariti kreirane funkcionalnosti aplikacije. Kvaliteta koda je također poboljšana, budući da su automatizirani testovi pokretani svaki put kada je napravljena promjena. To je pomoglo u otkrivanju grešaka u ranoj fazi razvoja i spriječilo njihovo uvođenje u produkcijsku okolinu. Konačno, aplikacija je implementirana u produkcijsku okolinu brže i pouzdanije, zahvaljujući automatizaciji procesa implementacije.
 Rezultati ovog rada pokazuju da je CI/CD vrijedna praksa koja može pomoći u poboljšanju kvalitete, pouzdanosti i učinkovitosti razvoja softvera. GitLab pipelines je moćna CI/CD platforma koja se može koristiti za automatizaciju cijelog cjevovoda isporuke softvera, olakšavajući razvojnim timovima usvajanje CI/CD praksi.
 
 \newpage
@@ -732,7 +732,7 @@ Rezultati ovog rada pokazuju da je CI/CD vrijedna praksa koja može pomoći u po
 \addcontentsline{toc}{section}{Sa\v{z}etak}
 
 Ovaj rad istražuje koncept kontinuirane integracije (CI) i njegovu implementaciju pomoću GitLab cjevovoda. Pruža pregled CI-a, njegovih prednosti i izazova te njegovih temeljnih načela i najboljih praksi. Također istražuje različite CI/CD platforme, kao što su Jenkins, Travis CI i GitLab CI, te uspoređuje njihove značajke, funkcionalnost i mogućnosti integracije. Rad zatim predstavlja studiju slučaja web aplikacije razvijene u Javi korištenjem Spring Boot okvira. Aplikacija je backend aplikacija za upravljanje tarantulama u hobiju teraristike. Korisnicima omogućuje upravljanje svojim tarantulama kroz mogućnost praćenja životnog ciklusa i vođenje evidencije o hranjenju i ponašanju. Aplikacija je razvijena korištenjem CI/CD praksi, uključujući GitLab cjevovode. To je uključivalo postavljanje GitLab repozitorija za aplikaciju, definiranje CI/CD konfiguracije i postavljanje faza cjevovoda za kontrolu verzija, izgradnju, testiranje i implementaciju aplikacije u proizvodnju. U radu se također raspravlja o rezultatima implementacije, analizirajući učinkovitost CI/CD u poboljšanju procesa razvoja. Performanse i učinkovitost implementiranog sustava su ocijenjene, ispitujući faktore kao što su vrijeme izgradnje, pokrivenost testom i stope uspješnosti implementacije.
-U radu se zaključuje da je CI/CD vrijedna praksa koja može pomoći u poboljšanju učinkovitosti, kvalitete i pouzdanosti životnog ciklusa razvoja softvera. GitLab pipelines je moćna CI/CD platforma koja se može koristiti za automatizaciju cjelokupnog procesa isporuke softvera, od upravljanja izvornim kodom do postavljanja do proizvodnje. Studija slučaja predstavljena u ovom radu pokazuje kako se CI/CD može koristiti za uspješan razvoj i implementaciju složene web aplikacije.
+U radu se zaključuje da je CI/CD vrijedna praksa koja može pomoći u poboljšanju učinkovitosti, kvalitete i pouzdanosti životnog ciklusa razvoja softvera. GitLab pipelines je moćna CI/CD platforma koja se može koristiti za automatizaciju cjelokupnog procesa isporuke softvera, od upravljanja izvornim kodom do postavljanja u produkcijsku okolinu. Studija slučaja predstavljena u ovom radu pokazuje kako se CI/CD može koristiti za uspješan razvoj i implementaciju složene web aplikacije.
 
 \bigskip
 \noindent\textbf{Klju\v{c}ne rije\v{c}i:}: Kontinuirana integracija, CI/CD, GitLab cjevovod, razvoj softvera, automatizacija, testiranje, implementacija, Java, Spring Boot, web aplikacija, kontrola verzija, Docker Hub, kvaliteta koda, tijek razvoja softvera, isporuka softvera.
@@ -755,7 +755,7 @@ This paper investigates the concept of continuous integration (CI) and its imple
 \section*{Životopis}
 \addcontentsline{toc}{section}{\v{Z}ivotopis}
 
-Valentin Loboda Rođen je 31. listopada 1998. godine u Osijeku. Osnovnu školu pohađa u 
+Valentin Loboda rođen je 31. listopada 1998. godine u Osijeku. Osnovnu školu pohađa u 
 Osnovnoj školi Dalj nakon koje upisuje III. Gimnaziju Osijek koju završava 2017. godine. Po 
 završetku srednje škole stječe pravo upisa na Fakultet elektrotehnike, računarstva i informacijskih 
 tehnologija gdje 2021. godine upisuje diplomski studij, smjer Računarstvo.
@@ -1165,7 +1165,7 @@ public class TarantulaControllerTests extends BaseIT {
 \section*{Prilog 4 - docker-compose.yaml}
 \label{prilog 4}
 \addcontentsline{toc}{section}{Prilog 4}
-docker-compose.yaml konfiguracija s definicijom mreže docker kontenjera potrebnih za izvođenje aplikacije i definicija kojom se pokreće docker kontenjer kreirane aplikacije.
+docker-compose.yaml konfiguracija s definicijom mreže docker kontejnera potrebnih za izvođenje aplikacije i definicija kojom se pokreće docker kontejner kreirane aplikacije.
 \begin{lstlisting}
 version: '3.7'
 
